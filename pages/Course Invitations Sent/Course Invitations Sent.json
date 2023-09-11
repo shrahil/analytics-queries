@@ -1,7 +1,7 @@
 {
   "unpublishedPage": {
-    "name": "Emails Copy",
-    "slug": "emails-copy",
+    "name": "Course Invitations Sent",
+    "slug": "course-invitations-sent",
     "layouts": [
       {
         "viewMode": false,
@@ -29,18 +29,21 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Emails Copy_Query1",
+              "id": "Course Invitations Sent_Query1",
               "name": "Query1",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
-              "jsonPathKeys": [],
+              "jsonPathKeys": [
+                "moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")",
+                "moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")"
+              ],
               "timeoutInMillisecond": 10000
             }
           ]
         ],
         "layoutOnLoadActionErrors": [],
         "validOnPageLoadActions": true,
-        "id": "Emails Copy",
+        "id": "Course Invitations Sent",
         "deleted": false,
         "policies": [],
         "userPermissions": []
