@@ -40,7 +40,7 @@
     "labelPosition": "Top",
     "key": "m9emq3y97b",
     "labelTextSize": "0.875rem",
-    "defaultDate": "{{new Date(new Date().setDate(new Date().getDate()-1)).toISOString()}}",
+    "defaultDate": "{{new Date(new Date().getFullYear(), new Date().getMonth(), 1).toISOString()}}",
     "isDeprecated": false,
     "rightColumn": 64,
     "widgetId": "k2ysuufkto",
