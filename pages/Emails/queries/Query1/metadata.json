@@ -18,7 +18,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT * FROM \"Payment\" where \"Payment\".\"createdAt\" >= {{moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")}}::date - interval '330 minutes' and \"Payment\".\"createdAt\" <= {{moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")}}::date + interval '1110 minutes' and \"status\" = 'responseReceivedSuccess'",
+      "body": "SELECT COALESCE(\"up\".\"email\", \"u\".\"email\") AS \"emailId\", \"u\".\"createdAt\", \"u\".\"updatedAt\", \"up\".\"location\",  \"up\".\"firstName\", \"up\".\"lastName\", \"up\".\"displayName\"\nFROM \"User\" AS \"u\"\nLEFT JOIN \"UserProfile\" AS \"up\" ON \"u\".\"id\" = \"up\".\"userId\" \nWHERE\n    \"u\".\"createdAt\" >= {{moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")}}::date - interval '330 minutes'\n    AND\n    \"u\".\"createdAt\" <= {{moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")}}::date + interval '1110 minutes'\n",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {

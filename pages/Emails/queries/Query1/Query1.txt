@@ -1,1 +1,7 @@
-SELECT * FROM "Payment" where "Payment"."createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes' and "Payment"."createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110 minutes' and "status" = 'responseReceivedSuccess'
+SELECT COALESCE("up"."email", "u"."email") AS "emailId", "u"."createdAt", "u"."updatedAt", "up"."location",  "up"."firstName", "up"."lastName", "up"."displayName"
+FROM "User" AS "u"
+LEFT JOIN "UserProfile" AS "up" ON "u"."id" = "up"."userId" 
+WHERE
+    "u"."createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes'
+    AND
+    "u"."createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110 minutes'
