@@ -31,6 +31,14 @@
     {
       "id": "Course Invitations Sent",
       "isDefault": false
+    },
+    {
+      "id": "Abhyas vs Non Abhyas",
+      "isDefault": false
+    },
+    {
+      "id": "Abhyas vs Non Abhyas Copy",
+      "isDefault": false
     }
   ],
   "viewMode": false,

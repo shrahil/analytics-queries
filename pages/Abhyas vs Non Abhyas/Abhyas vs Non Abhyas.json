@@ -1,27 +1,26 @@
 {
   "unpublishedPage": {
-    "name": "Payments",
-    "slug": "payments",
+    "name": "Abhyas vs Non Abhyas",
+    "slug": "abhyas-vs-non-abhyas",
     "layouts": [
       {
         "viewMode": false,
         "dsl": {
           "widgetName": "MainContainer",
           "backgroundColor": "none",
-          "rightColumn": 4896,
+          "rightColumn": 1224,
           "snapColumns": 64,
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 910,
+          "bottomRow": 480,
           "containerStyle": "none",
-          "snapRows": 124,
+          "snapRows": 60,
           "parentRowSpace": 1,
           "type": "CANVAS_WIDGET",
           "canExtend": true,
           "version": 86,
-          "minHeight": 1292,
-          "dynamicTriggerPathList": [],
+          "minHeight": 620,
           "parentColumnSpace": 1,
           "dynamicBindingPathList": [],
           "leftColumn": 0
@@ -29,13 +28,22 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Payments_Query1",
-              "name": "Query1",
+              "id": "Abhyas vs Non Abhyas_Query2",
+              "name": "Query2",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
               "jsonPathKeys": [
-                "moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")",
-                "moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")"
+                "moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Abhyas vs Non Abhyas_Query3",
+              "name": "Query3",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")"
               ],
               "timeoutInMillisecond": 10000
             }
@@ -43,7 +51,7 @@
         ],
         "layoutOnLoadActionErrors": [],
         "validOnPageLoadActions": true,
-        "id": "Payments",
+        "id": "Abhyas vs Non Abhyas",
         "deleted": false,
         "policies": [],
         "userPermissions": []
@@ -54,5 +62,5 @@
     "isHidden": false
   },
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_64b92e3951b06c6cdc1f0c8a"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_650d6f5610eefa0117f92aa5"
 }
