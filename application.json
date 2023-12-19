@@ -5,10 +5,6 @@
       "isDefault": true
     },
     {
-      "id": "Target",
-      "isDefault": false
-    },
-    {
       "id": "Ignite",
       "isDefault": false
     },
@@ -39,6 +35,18 @@
     {
       "id": "Abhyas vs Non Abhyas Copy",
       "isDefault": false
+    },
+    {
+      "id": "Monthly sales",
+      "isDefault": false
+    },
+    {
+      "id": "Monthly sales Copy",
+      "isDefault": false
+    },
+    {
+      "id": "Parent Dashboard Test Query",
+      "isDefault": false
     }
   ],
   "viewMode": false,
@@ -46,7 +54,11 @@
   "unreadCommentThreads": 0,
   "color": "#F5D1D1",
   "icon": "dollar",
-  "unpublishedCustomJSLibs": [],
+  "unpublishedCustomJSLibs": [
+    {
+      "uidString": "xmlParser_https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/3.17.5/parser.min.js"
+    }
+  ],
   "publishedCustomJSLibs": [],
   "evaluationVersion": 2,
   "applicationVersion": 2,

@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "Query1",
+    "name": "Query2",
     "datasource": {
       "name": "learner1",
       "pluginId": "postgres-plugin",
@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Target",
+    "pageId": "Monthly sales",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT \"ta\".\"testId\", \"ta\".\"id\", \"ta\".\"userId\", \"ta\".\"result\"->>'totalMarks' as TotalMarks, \"up\".\"phone\", \"up\".\"displayName\", \"u\".\"email\" FROM \"TestAttempt\" \"ta\" INNER JOIN \"UserProfile\" \"up\"  ON \"ta\".\"userId\" = \"up\".\"userId\" INNER JOIN \"User\" \"u\" ON \"up\".\"userId\" = \"u\".\"id\" WHERE \"ta\".\"testId\" > 2773517 AND \"ta\".\"testId\" < 2773523 AND \"ta\".\"completed\" = true and \"ta\".\"finishedAt\" <= '2023-08-24 04:30:00';",
+      "body": "SELECT * FROM \"UserProfile\" where \"userId\" = '1758585'  LIMIT 10;",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -26,7 +26,7 @@
         }
       ]
     },
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "dynamicBindingPathList": [],
     "isValid": true,
     "invalids": [],
@@ -35,10 +35,9 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": [],
-    "createdAt": "2023-07-20T12:53:58Z"
+    "userPermissions": []
   },
-  "id": "Target_Query1",
+  "id": "Monthly sales_Query2",
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_64e5f334bc7b112cd018ee1b"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_6536181b37aad65ede9471fb"
 }

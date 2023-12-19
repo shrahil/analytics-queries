@@ -1,1 +1,7 @@
-SELECT * FROM public."2018TestSeriesUserPercentile" LIMIT 10;
+SELECT *
+FROM "UserProfile"
+WHERE "userId" IN (
+    SELECT "userId"
+    FROM "Payment"
+    WHERE "paymentForId" = '3125'
+) AND NOT "city" ISNULL

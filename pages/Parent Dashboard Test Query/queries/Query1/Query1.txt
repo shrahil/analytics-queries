@@ -1,0 +1,50 @@
+SELECT 
+  "ta"."testId",
+  "ta"."userId",
+  "ta"."result"->>'totalMarks' as TotalMarks,
+  (SELECT SUM(subject_marks) 
+   FROM (
+     SELECT  
+       (section_data->>'totalMarks')::int AS subject_marks
+     FROM 
+       json_array_elements("ta"."result"->'sections') AS section_data
+     WHERE
+       section_data->>'sectionName' LIKE 'Physics%'
+    ) physics_scores
+  ) AS physics_marks, 
+(SELECT SUM(subject_marks) 
+   FROM (
+     SELECT  
+       (section_data->>'totalMarks')::int AS subject_marks
+     FROM 
+       json_array_elements("ta"."result"->'sections') AS section_data
+     WHERE
+       section_data->>'sectionName' LIKE 'Botany%'
+    ) botany_scores
+  ) AS botany_marks, 
+(SELECT SUM(subject_marks) 
+   FROM (
+     SELECT  
+       (section_data->>'totalMarks')::int AS subject_marks
+     FROM 
+       json_array_elements("ta"."result"->'sections') AS section_data
+     WHERE
+       section_data->>'sectionName' LIKE 'Chemistry%'
+    ) chemistry_scores
+  ) AS chemistry_marks,
+(SELECT SUM(subject_marks) 
+   FROM (
+     SELECT  
+       (section_data->>'totalMarks')::int AS subject_marks
+     FROM 
+       json_array_elements("ta"."result"->'sections') AS section_data
+     WHERE
+       section_data->>'sectionName' LIKE 'Zoology%'
+    ) zoology_scores
+  ) AS zoology_marks
+                   
+FROM "TestAttempt" "ta"
+WHERE "ta"."testId" = {{Input2.text}}
+  AND "ta"."completed" = true
+	AND "ta"."userId" = {{Input1.text}}
+LIMIT 10;

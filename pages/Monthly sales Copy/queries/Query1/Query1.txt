@@ -1,0 +1,1 @@
+SELECT "note" FROM "StudentNote" WHERE "StudentNote"."createdAt" > '2023-05-07' LIMIT 100;

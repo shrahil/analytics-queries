@@ -1,27 +1,26 @@
 {
   "unpublishedPage": {
-    "name": "Target",
-    "slug": "target",
+    "name": "Monthly sales Copy",
+    "slug": "monthly-sales-copy",
     "layouts": [
       {
         "viewMode": false,
         "dsl": {
           "widgetName": "MainContainer",
           "backgroundColor": "none",
-          "rightColumn": 4896,
+          "rightColumn": 1224,
           "snapColumns": 64,
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 910,
+          "bottomRow": 730,
           "containerStyle": "none",
-          "snapRows": 124,
+          "snapRows": 81,
           "parentRowSpace": 1,
           "type": "CANVAS_WIDGET",
           "canExtend": true,
-          "version": 85,
-          "minHeight": 1292,
-          "dynamicTriggerPathList": [],
+          "version": 87,
+          "minHeight": 830,
           "parentColumnSpace": 1,
           "dynamicBindingPathList": [],
           "leftColumn": 0
@@ -29,7 +28,7 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Target_Query1",
+              "id": "Monthly sales Copy_Query1",
               "name": "Query1",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
@@ -40,7 +39,7 @@
         ],
         "layoutOnLoadActionErrors": [],
         "validOnPageLoadActions": true,
-        "id": "Target",
+        "id": "Monthly sales Copy",
         "deleted": false,
         "policies": [],
         "userPermissions": []
@@ -51,5 +50,5 @@
     "isHidden": false
   },
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_64e5f334bc7b112cd018ee19"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_6538d6a3b26473000709f74f"
 }

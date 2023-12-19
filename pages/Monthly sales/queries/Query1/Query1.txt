@@ -1,0 +1,7 @@
+SELECT DATE_TRUNC('month', "Payment"."createdAt" + interval '330 minutes')::date as "month",
+       sum("amount") as "productRevenue"
+FROM "Payment"
+WHERE "Payment"."createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes'
+  AND "Payment"."createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110 minutes'
+  AND "status" = 'responseReceivedSuccess'
+GROUP BY "month"

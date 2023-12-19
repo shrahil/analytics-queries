@@ -522,6 +522,7 @@
     "rightColumn": 64,
     "textSize": "0.875rem",
     "widgetId": "siaimnbr2i",
+    "enableServerSideFiltering": false,
     "minWidth": 450,
     "tableData": "{{Query1.data}}",
     "label": "Data",

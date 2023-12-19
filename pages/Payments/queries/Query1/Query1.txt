@@ -1,4 +1,4 @@
-SELECT "Payment"."amount", "Payment"."revenue", COALESCE("up"."email", "u"."email") AS "emailId", "Payment"."userPhone", "Payment"."paymentDesc", "Payment"."status", "Payment"."createdAt", "Payment"."updatedAt", "up"."location", "Payment"."userId", "Payment"."id", "up"."firstName", "up"."lastName", "up"."displayName"
+SELECT "Payment"."amount", "Payment"."revenue", COALESCE("up"."email", "u"."email") AS "emailId", "Payment"."userPhone", "Payment"."paymentDesc", "Payment"."status", ("Payment"."createdAt" + interval '330 minutes') AS "createdAt", "Payment"."updatedAt", "up"."location", "Payment"."userId", "Payment"."id", "up"."firstName", "up"."lastName", "up"."displayName"
 FROM "Payment"
 INNER JOIN "User" AS "u" ON "Payment"."userId" = "u"."id"
 LEFT JOIN "UserProfile" AS "up" ON ("Payment"."userId" = "up"."userId" AND "up"."email" IS NOT NULL)
