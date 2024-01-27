@@ -1,0 +1,2 @@
+select count(DISTINCT "Payment"."userId")  as uss, "UserProfile"."state" from "Payment","UserProfile" where "UserProfile"."createdAt" > '2024-01-01' and "Payment"."status" = 'responseReceivedSuccess' and 
+"UserProfile"."userId" = "Payment"."userId" group by "UserProfile"."state"

@@ -1,0 +1,4 @@
+SELECT *
+FROM "Test"
+WHERE "Test"."name" LIKE 'NEET Level Test%' AND "Test"."startedAt" <= CURRENT_DATE
+ORDER BY "Test"."createdAt" DESC LIMIT 50;

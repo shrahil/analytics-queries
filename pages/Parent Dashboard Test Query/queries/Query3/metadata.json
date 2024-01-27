@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "Query1",
+    "name": "Query3",
     "datasource": {
       "name": "learner1",
       "pluginId": "postgres-plugin",
@@ -13,11 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Abhyas vs Non Abhyas Copy",
+    "pageId": "Parent Dashboard Test Query",
     "actionConfiguration": {
+      "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT * FROM public.\"2018TestSeriesUserPercentile\" LIMIT 10;",
+      "body": "select * FROM \"CourseInvitation\" WHERE \"createdAt\" > '2023-05-08' AND \"createdAt\" < '2023-06-07' AND \"expiryAt\" <'2023-06-11' ORDER BY \"createdAt\" ASC ;",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -26,6 +27,7 @@
       ]
     },
     "executeOnLoad": false,
+    "dynamicBindingPathList": [],
     "isValid": true,
     "invalids": [],
     "messages": [],
@@ -34,9 +36,9 @@
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-09-22T11:00:07Z"
+    "createdAt": "2024-01-05T10:53:54Z"
   },
-  "id": "Abhyas vs Non Abhyas Copy_Query1",
+  "id": "Parent Dashboard Test Query_Query3",
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_650d73b787eeba46625f0c5d"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_6597dfc259aa5450e0eb4779"
 }

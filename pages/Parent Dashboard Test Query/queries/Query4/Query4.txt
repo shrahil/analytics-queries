@@ -1,0 +1,4 @@
+SELECT null, count(*), sum("amount") FROM "Payment" where  "amount" in (1999, 2249, 2749, 3749, 4743, 4993, 5743, 4093) and "createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes' and "createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110 minutes' and "status" = 'responseReceivedSuccess' AND (
+        "paymentForId" NOT IN ('3125', '3257', '3488')
+        OR "paymentForId" IS NULL
+    );

@@ -1,0 +1,1 @@
+select * FROM "CourseInvitation" WHERE "createdAt" > '2023-05-08' AND "createdAt" < '2023-06-07' AND "expiryAt" <'2023-06-11' ORDER BY "createdAt" ASC ;

@@ -35,7 +35,8 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2023-10-28T10:56:24Z"
   },
   "id": "Abhyas vs Non Abhyas Copy_Query4",
   "deleted": false,

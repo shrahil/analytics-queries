@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "Query3",
+    "name": "Query2",
     "datasource": {
       "name": "learner1",
       "pluginId": "postgres-plugin",
@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Abhyas vs Non Abhyas Copy",
+    "pageId": "Parent Dashboard Test Query",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT \"Payment\".\"createdAt\"::date AS \"x\"\n , SUM(\"amount\") as \"y\"\nFROM \"Payment\" \nwhere \"Payment\".\"createdAt\" >= {{moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")}}::date - interval '330 minutes' \nand \"Payment\".\"createdAt\" <= {{moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")}}::date + interval '1110 minutes' \nand \"status\" = 'responseReceivedSuccess' \nand \"paymentForId\" IN ('3125', '3257','3488') \nGROUP BY \"x\"\nORDER BY \"x\" DESC;",
+      "body": "\nSELECT sum(\"amount\") FROM \"Payment\" where \"createdAt\" >= {{moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")}}::date - interval '330 minutes' and \"createdAt\" <= {{moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")}}::date + interval '1110 minutes' and \"status\" = 'responseReceivedSuccess';",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -43,9 +43,9 @@
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-09-22T10:42:16Z"
+    "createdAt": "2023-12-20T08:58:13Z"
   },
-  "id": "Abhyas vs Non Abhyas Copy_Query3",
+  "id": "Parent Dashboard Test Query_Query2",
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_650d73b787eeba46625f0c5c"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_6582aca54a02be4929a4f134"
 }

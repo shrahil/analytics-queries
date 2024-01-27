@@ -47,6 +47,14 @@
     {
       "id": "Parent Dashboard Test Query",
       "isDefault": false
+    },
+    {
+      "id": "Page1",
+      "isDefault": false
+    },
+    {
+      "id": "Trials",
+      "isDefault": false
     }
   ],
   "viewMode": false,
