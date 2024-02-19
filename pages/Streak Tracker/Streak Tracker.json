@@ -1,7 +1,7 @@
 {
   "unpublishedPage": {
-    "name": "Page1",
-    "slug": "page1",
+    "name": "Streak Tracker",
+    "slug": "streak-tracker",
     "layouts": [
       {
         "viewMode": false,
@@ -13,14 +13,14 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 440,
+          "bottomRow": 1230,
           "containerStyle": "none",
-          "snapRows": 88,
+          "snapRows": 56,
           "parentRowSpace": 1,
           "type": "CANVAS_WIDGET",
           "canExtend": true,
-          "version": 87,
-          "minHeight": 900,
+          "version": 89,
+          "minHeight": 580,
           "parentColumnSpace": 1,
           "dynamicBindingPathList": [],
           "leftColumn": 0
@@ -28,26 +28,40 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Page1_Query1",
-              "name": "Query1",
+              "id": "Streak Tracker_Query3",
+              "name": "Query3",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
               "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Streak Tracker_Query1",
+              "name": "Query1",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "questionsInput.value",
+                "streakLengthInput.value - 1"
+              ],
               "timeoutInMillisecond": 10000
             }
           ]
         ],
         "layoutOnLoadActionErrors": [],
         "validOnPageLoadActions": true,
-        "id": "Page1",
+        "id": "Streak Tracker",
         "deleted": false,
         "policies": [],
         "userPermissions": []
       }
     ],
     "userPermissions": [],
-    "policies": []
+    "policies": [],
+    "isHidden": false
   },
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_6582a53ef468f5760535c856"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_65c377c52c26ed33084e1cfe"
 }

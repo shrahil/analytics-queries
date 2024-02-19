@@ -1,0 +1,1 @@
+SELECT * FROM "DailyUserEvent" WHERE "event" = 'CorrectQuestion' AND "eventCount" > 100 AND "userId" = '2164286' ORDER BY "eventDate" DESC

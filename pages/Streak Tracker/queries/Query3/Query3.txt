@@ -1,0 +1,7 @@
+SELECT "userId"
+FROM "DailyUserEvent"
+WHERE "event" = 'CorrectQuestion'
+  AND "eventCount" > 100
+  AND "eventDate" IN (CURRENT_DATE - INTERVAL '1 day', CURRENT_DATE - INTERVAL '2 days', CURRENT_DATE - INTERVAL '3 days', CURRENT_DATE - INTERVAL '4 days',CURRENT_DATE - INTERVAL '5 days',CURRENT_DATE - INTERVAL '6 days',CURRENT_DATE - INTERVAL '7 days')
+GROUP BY "userId"
+HAVING COUNT(DISTINCT "eventDate") = 7 ORDER BY "userId";

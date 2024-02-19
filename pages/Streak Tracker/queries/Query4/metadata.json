@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "Query1",
+    "name": "Query4",
     "datasource": {
       "name": "learner1",
       "pluginId": "postgres-plugin",
@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Page1",
+    "pageId": "Streak Tracker",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT *\nFROM \"Test\"\nWHERE \"Test\".\"name\" LIKE 'NEET Level Test%' AND \"Test\".\"startedAt\" <= CURRENT_DATE\nORDER BY \"Test\".\"createdAt\" DESC LIMIT 50;",
+      "body": "SELECT * FROM \"Post\" LIMIT 10;",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -26,7 +26,7 @@
         }
       ]
     },
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "dynamicBindingPathList": [],
     "isValid": true,
     "invalids": [],
@@ -36,9 +36,9 @@
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-12-20T08:35:57Z"
+    "createdAt": "2024-02-16T10:03:15Z"
   },
-  "id": "Page1_Query1",
+  "id": "Streak Tracker_Query4",
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_6582a76df468f5760535c867"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_65cf32e3439de4515aa543a6"
 }

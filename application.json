@@ -49,11 +49,15 @@
       "isDefault": false
     },
     {
-      "id": "Page1",
+      "id": "Abhyas Customers",
       "isDefault": false
     },
     {
       "id": "Trials",
+      "isDefault": false
+    },
+    {
+      "id": "Streak Tracker",
       "isDefault": false
     }
   ],
