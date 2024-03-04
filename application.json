@@ -1,6 +1,10 @@
 {
   "pages": [
     {
+      "id": "User wise questions practiced",
+      "isDefault": false
+    },
+    {
       "id": "Payments",
       "isDefault": true
     },

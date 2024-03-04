@@ -1,0 +1,1 @@
+SELECT COUNT(DISTINCT "id") FROM "User" WHERE "User"."createdAt" > ('2024-02-20') AND "User"."createdAt" < ('2024-02-21')  ;

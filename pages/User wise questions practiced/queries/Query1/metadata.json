@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "Query4",
+    "name": "Query1",
     "datasource": {
       "name": "learner1",
       "pluginId": "postgres-plugin",
@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Streak Tracker",
+    "pageId": "User wise questions practiced",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT * FROM \"DailyUserEvent\" LIMIT 100;",
+      "body": "SELECT COUNT(DISTINCT \"Answer\".\"userId\") AS USS,\tDATE(\"Answer\".\"createdAt\") AS DD\n\tFROM \"Answer\",\n\t\"User\"\nWHERE \"Answer\".\"questionId\" IN\n\t\t(SELECT \"ChapterQuestion\".\"questionId\"\n\t\t\tFROM \"ChapterQuestion\"\n\t\t\tWHERE \"ChapterQuestion\".\"chapterId\" = 696)\n\tAND DATE(\"Answer\".\"createdAt\") = DATE(\"User\".\"createdAt\")\n\tAND \"User\".\"createdAt\" > '2024-01-01' \nGROUP BY DD;",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -36,9 +36,9 @@
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2024-02-16T10:03:15Z"
+    "createdAt": "2024-02-21T09:05:19Z"
   },
-  "id": "Streak Tracker_Query4",
+  "id": "User wise questions practiced_Query1",
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_65cf32e3439de4515aa543a6"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_65d5bccfc8d1e23a05e02f24"
 }

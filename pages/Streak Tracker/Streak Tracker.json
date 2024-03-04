@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 1230,
+          "bottomRow": 1470,
           "containerStyle": "none",
           "snapRows": 56,
           "parentRowSpace": 1,
@@ -46,7 +46,7 @@
                 "questionsInput.value",
                 "streakLengthInput.value - 1"
               ],
-              "timeoutInMillisecond": 10000
+              "timeoutInMillisecond": 100000
             }
           ]
         ],

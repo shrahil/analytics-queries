@@ -1,54 +1,56 @@
 WITH CorrectQuestions AS (
-    SELECT
-        "userId",
-        "eventDate",
-        "eventCount",
-        LAG("eventDate") OVER (PARTITION BY "userId" ORDER BY "eventDate") AS "previousDate"
-    FROM
-        "DailyUserEvent"
-    WHERE
-        "event" = 'CorrectQuestion'
-        AND "eventCount" > {{questionsInput.value}}
-        AND "eventDate" < CURRENT_DATE -- Exclude today's date from the calculation
+	SELECT
+	"userId",
+	"eventDate",
+	"eventCount",
+	LAG("eventDate") OVER (PARTITION BY "userId" ORDER BY "eventDate") AS "previousDate"
+	FROM
+	"DailyUserEvent"
+	WHERE
+	"event" = 'CorrectQuestion'
+	AND "eventCount" > {{questionsInput.value}}
+	AND "eventDate" < CURRENT_DATE -- Exclude today's date from the calculation
 ),
 Streaks AS (
-    SELECT
-        *,
-        CASE
-            WHEN "eventDate" = "previousDate" + INTERVAL '1 day' THEN 1
-            ELSE 0
-        END AS "isConsecutive",
-        "eventDate" - ROW_NUMBER() OVER (PARTITION BY "userId" ORDER BY "eventDate") * INTERVAL '1 day' AS "streakGroup"
-    FROM
-        CorrectQuestions
+	SELECT
+	*,
+	CASE
+	WHEN "eventDate" = "previousDate" + INTERVAL '1 day' THEN 1
+	ELSE 0
+	END AS "isConsecutive",
+	"eventDate" - ROW_NUMBER() OVER (PARTITION BY "userId" ORDER BY "eventDate") * INTERVAL '1 day' AS "streakGroup"
+	FROM
+	CorrectQuestions
 ),
 StreaksWithLength AS (
-    SELECT
-        "userId",
-        "streakGroup",
-        COUNT(*) AS "streakLength",
-        MAX("eventDate") AS "lastStreakDate"
-    FROM
-        Streaks
-    WHERE
-        "isConsecutive" = 1
-    GROUP BY
-        "userId", "streakGroup"
+	SELECT
+	"userId",
+	"streakGroup",
+	COUNT(*) AS "streakLength",
+	MAX("eventDate") AS "lastStreakDate"
+	FROM
+	Streaks
+	WHERE
+	"isConsecutive" = 1
+	GROUP BY
+	"userId", "streakGroup"
 ),
 ActiveStreaks AS (
-    SELECT
-        "userId",
-        MAX("streakLength") AS "longestActiveStreak"
-    FROM
-        StreaksWithLength
-    WHERE
-        "lastStreakDate" = CURRENT_DATE - INTERVAL '1 day' -- Adjust to focus on streaks active up to yesterday
-        AND "streakLength" >= {{streakLengthInput.value - 1}} -- Adjust based on your streak length criteria
-    GROUP BY
-        "userId"
+	SELECT
+	"userId",
+	MAX("streakLength") AS "longestActiveStreak"
+	FROM
+	StreaksWithLength
+	WHERE
+	"lastStreakDate" = CURRENT_DATE - INTERVAL '1 day' -- Adjust to focus on streaks active up to yesterday
+	AND "streakLength" >= {{streakLengthInput.value - 1}} -- Adjust based on your streak length criteria
+	GROUP BY
+	"userId"
 )
 SELECT
     u."userId",
+		(select sum("eventCount")::float from "DailyUserEvent" where "DailyUserEvent"."userId" = u."userId" and "event" = 'CorrectQuestion' and "eventDate" > CURRENT_TIMESTAMP - interval '1 week') / (select sum("eventCount")::float from "DailyUserEvent" where "DailyUserEvent"."userId" = u."userId" and "event" = 'Question' and "eventDate" > CURRENT_TIMESTAMP - interval '1 week'),
+(select sum("eventCount")::float from "DailyUserEvent" where "DailyUserEvent"."userId" = u."userId" and "event" = 'Question' and "eventDate" > CURRENT_TIMESTAMP - interval '1 week'),
     u."displayName",
     u."email",
     u."phone",

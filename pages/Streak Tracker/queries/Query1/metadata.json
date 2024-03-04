@@ -15,10 +15,10 @@
     },
     "pageId": "Streak Tracker",
     "actionConfiguration": {
-      "timeoutInMillisecond": 10000,
+      "timeoutInMillisecond": 100000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "WITH CorrectQuestions AS (\n    SELECT\n        \"userId\",\n        \"eventDate\",\n        \"eventCount\",\n        LAG(\"eventDate\") OVER (PARTITION BY \"userId\" ORDER BY \"eventDate\") AS \"previousDate\"\n    FROM\n        \"DailyUserEvent\"\n    WHERE\n        \"event\" = 'CorrectQuestion'\n        AND \"eventCount\" > {{questionsInput.value}}\n        AND \"eventDate\" < CURRENT_DATE -- Exclude today's date from the calculation\n),\nStreaks AS (\n    SELECT\n        *,\n        CASE\n            WHEN \"eventDate\" = \"previousDate\" + INTERVAL '1 day' THEN 1\n            ELSE 0\n        END AS \"isConsecutive\",\n        \"eventDate\" - ROW_NUMBER() OVER (PARTITION BY \"userId\" ORDER BY \"eventDate\") * INTERVAL '1 day' AS \"streakGroup\"\n    FROM\n        CorrectQuestions\n),\nStreaksWithLength AS (\n    SELECT\n        \"userId\",\n        \"streakGroup\",\n        COUNT(*) AS \"streakLength\",\n        MAX(\"eventDate\") AS \"lastStreakDate\"\n    FROM\n        Streaks\n    WHERE\n        \"isConsecutive\" = 1\n    GROUP BY\n        \"userId\", \"streakGroup\"\n),\nActiveStreaks AS (\n    SELECT\n        \"userId\",\n        MAX(\"streakLength\") AS \"longestActiveStreak\"\n    FROM\n        StreaksWithLength\n    WHERE\n        \"lastStreakDate\" = CURRENT_DATE - INTERVAL '1 day' -- Adjust to focus on streaks active up to yesterday\n        AND \"streakLength\" >= {{streakLengthInput.value - 1}} -- Adjust based on your streak length criteria\n    GROUP BY\n        \"userId\"\n)\nSELECT\n    u.\"userId\",\n    u.\"displayName\",\n    u.\"email\",\n    u.\"phone\",\n    a.\"longestActiveStreak\"\nFROM\n    ActiveStreaks a\nJOIN\n    \"UserProfile\" u ON a.\"userId\" = u.\"userId\"\nORDER BY\n    a.\"longestActiveStreak\" DESC;\n",
+      "body": "WITH CorrectQuestions AS (\n\tSELECT\n\t\"userId\",\n\t\"eventDate\",\n\t\"eventCount\",\n\tLAG(\"eventDate\") OVER (PARTITION BY \"userId\" ORDER BY \"eventDate\") AS \"previousDate\"\n\tFROM\n\t\"DailyUserEvent\"\n\tWHERE\n\t\"event\" = 'CorrectQuestion'\n\tAND \"eventCount\" > {{questionsInput.value}}\n\tAND \"eventDate\" < CURRENT_DATE -- Exclude today's date from the calculation\n),\nStreaks AS (\n\tSELECT\n\t*,\n\tCASE\n\tWHEN \"eventDate\" = \"previousDate\" + INTERVAL '1 day' THEN 1\n\tELSE 0\n\tEND AS \"isConsecutive\",\n\t\"eventDate\" - ROW_NUMBER() OVER (PARTITION BY \"userId\" ORDER BY \"eventDate\") * INTERVAL '1 day' AS \"streakGroup\"\n\tFROM\n\tCorrectQuestions\n),\nStreaksWithLength AS (\n\tSELECT\n\t\"userId\",\n\t\"streakGroup\",\n\tCOUNT(*) AS \"streakLength\",\n\tMAX(\"eventDate\") AS \"lastStreakDate\"\n\tFROM\n\tStreaks\n\tWHERE\n\t\"isConsecutive\" = 1\n\tGROUP BY\n\t\"userId\", \"streakGroup\"\n),\nActiveStreaks AS (\n\tSELECT\n\t\"userId\",\n\tMAX(\"streakLength\") AS \"longestActiveStreak\"\n\tFROM\n\tStreaksWithLength\n\tWHERE\n\t\"lastStreakDate\" = CURRENT_DATE - INTERVAL '1 day' -- Adjust to focus on streaks active up to yesterday\n\tAND \"streakLength\" >= {{streakLengthInput.value - 1}} -- Adjust based on your streak length criteria\n\tGROUP BY\n\t\"userId\"\n)\nSELECT\n    u.\"userId\",\n\t\t(select sum(\"eventCount\")::float from \"DailyUserEvent\" where \"DailyUserEvent\".\"userId\" = u.\"userId\" and \"event\" = 'CorrectQuestion' and \"eventDate\" > CURRENT_TIMESTAMP - interval '1 week') / (select sum(\"eventCount\")::float from \"DailyUserEvent\" where \"DailyUserEvent\".\"userId\" = u.\"userId\" and \"event\" = 'Question' and \"eventDate\" > CURRENT_TIMESTAMP - interval '1 week'),\n(select sum(\"eventCount\")::float from \"DailyUserEvent\" where \"DailyUserEvent\".\"userId\" = u.\"userId\" and \"event\" = 'Question' and \"eventDate\" > CURRENT_TIMESTAMP - interval '1 week'),\n    u.\"displayName\",\n    u.\"email\",\n    u.\"phone\",\n    a.\"longestActiveStreak\"\nFROM\n    ActiveStreaks a\nJOIN\n    \"UserProfile\" u ON a.\"userId\" = u.\"userId\"\nORDER BY\n    a.\"longestActiveStreak\" DESC;",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -33,7 +33,9 @@
       }
     ],
     "isValid": true,
-    "invalids": [],
+    "invalids": [
+      "'Query timeout' field must be an integer between 0 and 60000"
+    ],
     "messages": [],
     "jsonPathKeys": [
       "questionsInput.value",

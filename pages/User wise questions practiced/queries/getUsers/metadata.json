@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "Query4",
+    "name": "getUsers",
     "datasource": {
       "name": "learner1",
       "pluginId": "postgres-plugin",
@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Streak Tracker",
+    "pageId": "User wise questions practiced",
     "actionConfiguration": {
-      "timeoutInMillisecond": 10000,
+      "timeoutInMillisecond": 100000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT * FROM \"DailyUserEvent\" LIMIT 100;",
+      "body": "SELECT COUNT(DISTINCT \"id\") FROM \"User\" WHERE \"User\".\"createdAt\" > ('2024-02-20') AND \"User\".\"createdAt\" < ('2024-02-21')  ;",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -29,16 +29,18 @@
     "executeOnLoad": false,
     "dynamicBindingPathList": [],
     "isValid": true,
-    "invalids": [],
+    "invalids": [
+      "'Query timeout' field must be an integer between 0 and 60000"
+    ],
     "messages": [],
     "jsonPathKeys": [],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2024-02-16T10:03:15Z"
+    "createdAt": "2023-09-27T07:04:15Z"
   },
-  "id": "Streak Tracker_Query4",
+  "id": "User wise questions practiced_getUsers",
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_65cf32e3439de4515aa543a6"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_65d491d7a230e01e362c8b7a"
 }

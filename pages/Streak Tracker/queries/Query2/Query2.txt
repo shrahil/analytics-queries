@@ -1,1 +1,1 @@
-SELECT * FROM "DailyUserEvent" WHERE "event" = 'CorrectQuestion' AND "eventCount" > 100 AND "userId" = '2164286' ORDER BY "eventDate" DESC
+SELECT * FROM "DailyUserEvent" WHERE "eventCount" > 100 AND "userId" = '1635914' ORDER BY "eventDate" DESC
