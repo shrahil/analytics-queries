@@ -1,0 +1,1 @@
+SELECT "userId", COUNT(DISTINCT "id") AS "videosAdded" FROM "StudentNote" WHERE "url" IS NOT NULL AND "createdAt" > '2024-03-18' GROUP BY "userId" ORDER BY "videosAdded" DESC; 
