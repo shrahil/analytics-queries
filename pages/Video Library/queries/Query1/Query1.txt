@@ -1,1 +1,2 @@
-SELECT "url", "userId", "note", "chapterId", "id", "createdAt" FROM "StudentNote" WHERE "url" IS NOT NULL AND "createdAt" > '2024-03-18' ORDER BY "createdAt" DESC; 
+SELECT ("StudentNote"."createdAt" + interval '330 minutes')::date as "date", COUNT(DISTINCT "id") AS "videosAdded" FROM "StudentNote" 
+WHERE "url" IS NOT NULL AND "createdAt" > '2024-03-18' GROUP BY "date" ORDER BY "date" DESC; 

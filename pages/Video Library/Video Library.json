@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 1050,
+          "bottomRow": 1460,
           "containerStyle": "none",
           "snapRows": 56,
           "parentRowSpace": 1,
@@ -27,6 +27,14 @@
         },
         "layoutOnLoadActions": [
           [
+            {
+              "id": "Video Library_Query1",
+              "name": "Query1",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 100000
+            },
             {
               "id": "Video Library_Query2",
               "name": "Query2",
