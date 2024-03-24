@@ -73,7 +73,7 @@
         "chapterId",
         "url"
     ],
-    "dynamicPropertyPathList": [],
+    "dynamicPropertyPathList": [{"key": "tableData"}],
     "displayName": "Table",
     "bottomRow": 105,
     "columnWidthMap": {},
@@ -296,7 +296,7 @@
     "textSize": "0.875rem",
     "widgetId": "5ult5rv36e",
     "minWidth": 450,
-    "tableData": "{{Query1.data}}",
+    "tableData": "{{Query3.data}}",
     "label": "Data",
     "searchKey": "",
     "parentId": "0",
