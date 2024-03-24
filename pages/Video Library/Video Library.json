@@ -28,8 +28,24 @@
         "layoutOnLoadActions": [
           [
             {
+              "id": "Video Library_Query2",
+              "name": "Query2",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            },
+            {
               "id": "Video Library_Query3",
               "name": "Query3",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Video Library_Query4",
+              "name": "Query4",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
               "jsonPathKeys": [],
