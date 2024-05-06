@@ -1,0 +1,3 @@
+SELECT * FROM "UserProfile" where "UserProfile"."createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes'
+    AND
+    "UserProfile"."createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110 minutes' ORDER BY "createdAt" ASC LIMIT 1000;

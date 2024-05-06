@@ -1,0 +1,1 @@
+SELECT COUNT("id"), "neetExamYear" FROM "UserProfile"  where "createdAt" > '2024-04-01' GROUP BY "neetExamYear";

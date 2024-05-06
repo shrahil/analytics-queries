@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "Query1",
+    "name": "Query3",
     "datasource": {
       "name": "learner1",
       "pluginId": "postgres-plugin",
@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Target Copy",
+    "pageId": "Users",
     "actionConfiguration": {
-      "timeoutInMillisecond": 10000,
+      "timeoutInMillisecond": 1000000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT * FROM \"TestAttempt\" where \"testId\" = '3577818';",
+      "body": "-- Selecting distinct user email from either User or UserProfile table based on userId\nSELECT DISTINCT COALESCE(u.\"email\", up.\"email\") AS email, p.\"userId\"\nFROM \"Payment\" p\n-- Joining with User table on userId\nLEFT JOIN \"User\" u ON p.\"userId\" = u.\"id\"\n-- Joining with UserProfile table on userId\nLEFT JOIN \"UserProfile\" up ON p.\"userId\" = up.\"userId\"\nWHERE p.\"createdAt\" > '2023-03-31' \n  AND p.\"status\" = 'responseReceivedSuccess';\n",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -29,16 +29,18 @@
     "executeOnLoad": true,
     "dynamicBindingPathList": [],
     "isValid": true,
-    "invalids": [],
+    "invalids": [
+      "'Query timeout' field must be an integer between 0 and 60000"
+    ],
     "messages": [],
     "jsonPathKeys": [],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-07-20T12:53:58Z"
+    "createdAt": "2024-05-03T10:14:51Z"
   },
-  "id": "Target Copy_Query1",
+  "id": "Users_Query3",
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_64e6f7bcaa62834969a994a9"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_9eb3d1e2-e555-4008-a241-31480dc59f36"
 }

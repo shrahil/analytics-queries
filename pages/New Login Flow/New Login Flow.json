@@ -1,7 +1,7 @@
 {
   "unpublishedPage": {
-    "name": "Monthly sales",
-    "slug": "monthly-sales",
+    "name": "New Login Flow",
+    "slug": "new-login-flow",
     "layouts": [
       {
         "viewMode": false,
@@ -13,14 +13,14 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 730,
+          "bottomRow": 850,
           "containerStyle": "none",
-          "snapRows": 81,
+          "snapRows": 78,
           "parentRowSpace": 1,
           "type": "CANVAS_WIDGET",
           "canExtend": true,
           "version": 89,
-          "minHeight": 830,
+          "minHeight": 800,
           "parentColumnSpace": 1,
           "dynamicBindingPathList": [],
           "leftColumn": 0
@@ -28,8 +28,16 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Monthly sales_Query3",
-              "name": "Query3",
+              "id": "New Login Flow_Query1",
+              "name": "Query1",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "New Login Flow_Query2",
+              "name": "Query2",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
               "jsonPathKeys": [],
@@ -39,7 +47,7 @@
         ],
         "layoutOnLoadActionErrors": [],
         "validOnPageLoadActions": true,
-        "id": "Monthly sales",
+        "id": "New Login Flow",
         "deleted": false,
         "policies": [],
         "userPermissions": []
@@ -50,5 +58,5 @@
     "isHidden": false
   },
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_65151ca4905f075e5ff06864"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_6607a63aec4f0948fdf91e07"
 }

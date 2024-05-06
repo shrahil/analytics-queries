@@ -50,7 +50,7 @@ ActiveStreaks AS (
 SELECT
     u."userId",
 		(select sum("eventCount")::float from "DailyUserEvent" where "DailyUserEvent"."userId" = u."userId" and "event" = 'CorrectQuestion' and "eventDate" > CURRENT_TIMESTAMP - interval '1 week') / (select sum("eventCount")::float from "DailyUserEvent" where "DailyUserEvent"."userId" = u."userId" and "event" = 'Question' and "eventDate" > CURRENT_TIMESTAMP - interval '1 week'),
-(select sum("eventCount")::float from "DailyUserEvent" where "DailyUserEvent"."userId" = u."userId" and "event" = 'Question' and "eventDate" > CURRENT_TIMESTAMP - interval '1 week'),
+(select sum("eventCount")::float from "DailyUserEvent" where "DailyUserEvent"."userId" = u."userId" and "event" = 'Question' and "eventDate" > CURRENT_TIMESTAMP  - interval '1 week'),
     u."displayName",
     u."email",
     u."phone",

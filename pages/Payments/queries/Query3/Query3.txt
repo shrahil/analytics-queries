@@ -1,0 +1,1 @@
+SELECT COUNT(DISTINCT "id") FROM "User" WHERE "createdAt" < '2023-05-07';

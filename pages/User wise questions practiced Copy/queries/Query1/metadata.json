@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Target Copy",
+    "pageId": "User wise questions practiced Copy",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT * FROM \"TestAttempt\" where \"testId\" = '3577818';",
+      "body": "SELECT \"event\", SUM(\"eventCount\") FROM \"DailyUserEvent\" where \"userId\" = '1621823' GROUP BY \"event\" ;",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -36,9 +36,9 @@
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-07-20T12:53:58Z"
+    "createdAt": "2024-02-21T09:05:19Z"
   },
-  "id": "Target Copy_Query1",
+  "id": "User wise questions practiced Copy_Query1",
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_64e6f7bcaa62834969a994a9"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_377f9b80-5123-4ef5-8e91-00b1a185df88"
 }

@@ -1,0 +1,9 @@
+-- Selecting distinct user email from either User or UserProfile table based on userId
+SELECT DISTINCT COALESCE(u."email", up."email") AS email, p."userId"
+FROM "Payment" p
+-- Joining with User table on userId
+LEFT JOIN "User" u ON p."userId" = u."id"
+-- Joining with UserProfile table on userId
+LEFT JOIN "UserProfile" up ON p."userId" = up."userId"
+WHERE p."createdAt" > '2023-03-31' 
+  AND p."status" = 'responseReceivedSuccess';

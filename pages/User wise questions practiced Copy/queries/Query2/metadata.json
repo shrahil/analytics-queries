@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "Query1",
+    "name": "Query2",
     "datasource": {
       "name": "learner1",
       "pluginId": "postgres-plugin",
@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Target Copy",
+    "pageId": "User wise questions practiced Copy",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT * FROM \"TestAttempt\" where \"testId\" = '3577818';",
+      "body": "SELECT * FROM \"TestAttempt\" where \"userId\" = '1621823';",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -36,9 +36,9 @@
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-07-20T12:53:58Z"
+    "createdAt": "2024-05-06T08:20:44Z"
   },
-  "id": "Target Copy_Query1",
+  "id": "User wise questions practiced Copy_Query2",
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_64e6f7bcaa62834969a994a9"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_51c6ac7e-2215-432f-8cfe-e2787eabce5d"
 }

@@ -1,0 +1,1 @@
+SELECT COUNT ("users"."id") as "noOfUsers", "users"."city" FROM exp1."users" GROUP BY exp1."users"."city" ORDER BY "noOfUsers" DESC;

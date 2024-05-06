@@ -1,0 +1,1 @@
+SELECT COUNT ("users"."id") as "noOfUsers", "users"."prepMode" FROM exp1."users" GROUP BY exp1."users"."prepMode" ORDER BY "noOfUsers" DESC;

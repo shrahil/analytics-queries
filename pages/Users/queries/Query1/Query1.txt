@@ -1,0 +1,4 @@
+SELECT ("User"."createdAt" + interval '330 minutes')::date as "date", count("id") as  "newUsers"
+FROM "User"
+WHERE "User"."createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes' AND "User"."createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110 minutes' 
+GROUP BY "date" ORDER BY "date" ASC;

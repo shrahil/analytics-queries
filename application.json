@@ -1,6 +1,10 @@
 {
   "pages": [
     {
+      "id": "Page1",
+      "isDefault": false
+    },
+    {
       "id": "User wise questions practiced",
       "isDefault": false
     },
@@ -66,6 +70,34 @@
     },
     {
       "id": "Video Library",
+      "isDefault": false
+    },
+    {
+      "id": "User Profile Table",
+      "isDefault": false
+    },
+    {
+      "id": "Users",
+      "isDefault": false
+    },
+    {
+      "id": "New Login Flow",
+      "isDefault": false
+    },
+    {
+      "id": "Notification Analytics",
+      "isDefault": false
+    },
+    {
+      "id": "DPP Analysis",
+      "isDefault": false
+    },
+    {
+      "id": "Page1",
+      "isDefault": false
+    },
+    {
+      "id": "User wise questions practiced Copy",
       "isDefault": false
     }
   ],

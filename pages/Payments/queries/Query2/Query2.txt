@@ -1,0 +1,4 @@
+SELECT COUNT(DISTINCT "Payment"."userId") 
+FROM "Payment" 
+WHERE "createdAt" > '2021-04-01' and "createdAt" < '2022-03-31'
+  AND "status" = 'responseReceivedSuccess';

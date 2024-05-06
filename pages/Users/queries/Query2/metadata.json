@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "Query1",
+    "name": "Query2",
     "datasource": {
       "name": "learner1",
       "pluginId": "postgres-plugin",
@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Target Copy",
+    "pageId": "Users",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT * FROM \"TestAttempt\" where \"testId\" = '3577818';",
+      "body": "SELECT COUNT(\"id\"), \"neetExamYear\" FROM \"UserProfile\"  where \"createdAt\" > '2024-04-01' GROUP BY \"neetExamYear\";",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -26,7 +26,7 @@
         }
       ]
     },
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "dynamicBindingPathList": [],
     "isValid": true,
     "invalids": [],
@@ -36,9 +36,9 @@
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-07-20T12:53:58Z"
+    "createdAt": "2024-04-05T10:57:07Z"
   },
-  "id": "Target Copy_Query1",
+  "id": "Users_Query2",
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_64e6f7bcaa62834969a994a9"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_660fd903336be123b21115ff"
 }

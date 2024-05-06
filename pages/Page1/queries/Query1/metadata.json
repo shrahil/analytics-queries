@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Target Copy",
+    "pageId": "Page1",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT * FROM \"TestAttempt\" where \"testId\" = '3577818';",
+      "body": "SELECT * FROM \"ShopifyOrderData\" ;",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -26,7 +26,7 @@
         }
       ]
     },
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "dynamicBindingPathList": [],
     "isValid": true,
     "invalids": [],
@@ -36,9 +36,9 @@
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-07-20T12:53:58Z"
+    "createdAt": "2024-04-23T13:13:42Z"
   },
-  "id": "Target Copy_Query1",
+  "id": "Page1_Query1",
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_64e6f7bcaa62834969a994a9"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_871727a1-888a-46e8-8a78-85d5a2862e4b"
 }

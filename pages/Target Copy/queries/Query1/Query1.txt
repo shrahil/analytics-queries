@@ -1,1 +1,1 @@
-SELECT * FROM "Answer" WHERE "createdAt" >= '08-05-2023' GROUP BY "userId" ORDER BY "createdAt" ASC LIMIT 10 ;
+SELECT * FROM "TestAttempt" where "testId" = '3577818';

@@ -1,0 +1,1 @@
+SELECT "event", SUM("eventCount") FROM "DailyUserEvent" where "userId" = '1621823' GROUP BY "event" ;

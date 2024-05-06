@@ -1,0 +1,1 @@
+SELECT * FROM "Notification" WHERE "contextType" = 'DailyNudges' AND id > 312384763 AND "scheduledAt" IS NOT NULL LIMIT 10;
