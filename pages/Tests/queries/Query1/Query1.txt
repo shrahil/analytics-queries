@@ -1,0 +1,1 @@
+ select "name", "id" from "Test" where "id" in (select "testId" from "CourseTest" where "courseId" = 3160) and "name" !~ 'Chapter ';

@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "User wise questions practiced Copy",
+    "pageId": "Tests",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT \"event\", SUM(\"eventCount\") FROM \"DailyUserEvent\" where \"userId\" = {{Input1.text}} GROUP BY \"event\" ;",
+      "body": " select \"name\", \"id\" from \"Test\" where \"id\" in (select \"testId\" from \"CourseTest\" where \"courseId\" = 3160) and \"name\" !~ 'Chapter ';",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -27,24 +27,18 @@
       ]
     },
     "executeOnLoad": true,
-    "dynamicBindingPathList": [
-      {
-        "key": "body"
-      }
-    ],
+    "dynamicBindingPathList": [],
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "jsonPathKeys": [
-      "Input1.text"
-    ],
+    "jsonPathKeys": [],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2024-02-21T09:05:19Z"
+    "createdAt": "2024-05-06T12:03:02Z"
   },
-  "id": "User wise questions practiced Copy_Query1",
+  "id": "Tests_Query1",
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_377f9b80-5123-4ef5-8e91-00b1a185df88"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_20e19837-3d2f-4eb2-8036-bb2583b1ff08"
 }

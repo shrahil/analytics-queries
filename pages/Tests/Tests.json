@@ -1,7 +1,7 @@
 {
   "unpublishedPage": {
-    "name": "User wise questions practiced Copy",
-    "slug": "user-wise-questions-practiced-copy",
+    "name": "Tests",
+    "slug": "tests",
     "layouts": [
       {
         "viewMode": false,
@@ -13,14 +13,14 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 680,
+          "bottomRow": 500,
           "containerStyle": "none",
-          "snapRows": 128,
+          "snapRows": 78,
           "parentRowSpace": 1,
           "type": "CANVAS_WIDGET",
           "canExtend": true,
           "version": 89,
-          "minHeight": 1300,
+          "minHeight": 800,
           "parentColumnSpace": 1,
           "dynamicBindingPathList": [],
           "leftColumn": 0
@@ -28,30 +28,18 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "User wise questions practiced Copy_Query1",
+              "id": "Tests_Query1",
               "name": "Query1",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
-              "jsonPathKeys": [
-                "Input1.text"
-              ],
-              "timeoutInMillisecond": 10000
-            },
-            {
-              "id": "User wise questions practiced Copy_Query2",
-              "name": "Query2",
-              "confirmBeforeExecute": false,
-              "pluginType": "DB",
-              "jsonPathKeys": [
-                "Input1.text"
-              ],
+              "jsonPathKeys": [],
               "timeoutInMillisecond": 10000
             }
           ]
         ],
         "layoutOnLoadActionErrors": [],
         "validOnPageLoadActions": true,
-        "id": "User wise questions practiced Copy",
+        "id": "Tests",
         "deleted": false,
         "policies": [],
         "userPermissions": []
@@ -62,5 +50,5 @@
     "isHidden": false
   },
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_69becc87-37d7-4a0a-a0b0-c6a70d41b2ec"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_9486df44-43de-4f30-9f82-f74af5bfa5ca"
 }

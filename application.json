@@ -99,6 +99,14 @@
     {
       "id": "User wise questions practiced Copy",
       "isDefault": false
+    },
+    {
+      "id": "Page2",
+      "isDefault": false
+    },
+    {
+      "id": "Tests",
+      "isDefault": false
     }
   ],
   "viewMode": false,

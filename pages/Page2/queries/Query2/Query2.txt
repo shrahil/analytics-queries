@@ -1,0 +1,3 @@
+SELECT "Payment"."amount" as "amount", count(*) as count, "amount" * count(*) as  "productRevenue" FROM "Payment" where "Payment"."createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '1770 minutes' and "Payment"."createdAt" <= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes' and "status" = 'responseReceivedSuccess' group by "Payment"."amount"
+union
+SELECT null, count(*), sum("amount") FROM "Payment" where "createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '1770 minutes' and "createdAt" <= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes' and "status" = 'responseReceivedSuccess' ORDER BY "productRevenue" desc;

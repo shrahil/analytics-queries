@@ -1,1 +1,1 @@
-SELECT "event", SUM("eventCount") FROM "DailyUserEvent" where "userId" = '1621823' GROUP BY "event" ;
+SELECT "event", SUM("eventCount") FROM "DailyUserEvent" where "userId" = {{Input1.text}} GROUP BY "event" ;

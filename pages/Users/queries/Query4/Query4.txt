@@ -1,0 +1,3 @@
+SELECT count("id") as  "newUsers"
+FROM "User"
+WHERE "User"."createdAt" >= '2024-05-05' ;

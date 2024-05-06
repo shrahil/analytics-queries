@@ -1,7 +1,7 @@
 {
   "unpublishedPage": {
-    "name": "User wise questions practiced Copy",
-    "slug": "user-wise-questions-practiced-copy",
+    "name": "Page2",
+    "slug": "page2",
     "layouts": [
       {
         "viewMode": false,
@@ -13,14 +13,14 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 680,
+          "bottomRow": 730,
           "containerStyle": "none",
-          "snapRows": 128,
+          "snapRows": 78,
           "parentRowSpace": 1,
           "type": "CANVAS_WIDGET",
           "canExtend": true,
           "version": 89,
-          "minHeight": 1300,
+          "minHeight": 800,
           "parentColumnSpace": 1,
           "dynamicBindingPathList": [],
           "leftColumn": 0
@@ -28,22 +28,12 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "User wise questions practiced Copy_Query1",
+              "id": "Page2_Query1",
               "name": "Query1",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
               "jsonPathKeys": [
-                "Input1.text"
-              ],
-              "timeoutInMillisecond": 10000
-            },
-            {
-              "id": "User wise questions practiced Copy_Query2",
-              "name": "Query2",
-              "confirmBeforeExecute": false,
-              "pluginType": "DB",
-              "jsonPathKeys": [
-                "Input1.text"
+                "moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")"
               ],
               "timeoutInMillisecond": 10000
             }
@@ -51,16 +41,15 @@
         ],
         "layoutOnLoadActionErrors": [],
         "validOnPageLoadActions": true,
-        "id": "User wise questions practiced Copy",
+        "id": "Page2",
         "deleted": false,
         "policies": [],
         "userPermissions": []
       }
     ],
     "userPermissions": [],
-    "policies": [],
-    "isHidden": false
+    "policies": []
   },
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_69becc87-37d7-4a0a-a0b0-c6a70d41b2ec"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_a6ada40a-70a9-48b9-9243-f332671cbf9a"
 }

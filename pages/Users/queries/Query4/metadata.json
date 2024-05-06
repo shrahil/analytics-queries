@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "Query1",
+    "name": "Query4",
     "datasource": {
       "name": "learner1",
       "pluginId": "postgres-plugin",
@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "User wise questions practiced Copy",
+    "pageId": "Users",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT \"event\", SUM(\"eventCount\") FROM \"DailyUserEvent\" where \"userId\" = {{Input1.text}} GROUP BY \"event\" ;",
+      "body": "SELECT count(\"id\") as  \"newUsers\"\nFROM \"User\"\nWHERE \"User\".\"createdAt\" >= '2024-05-05' ;",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -26,25 +26,19 @@
         }
       ]
     },
-    "executeOnLoad": true,
-    "dynamicBindingPathList": [
-      {
-        "key": "body"
-      }
-    ],
+    "executeOnLoad": false,
+    "dynamicBindingPathList": [],
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "jsonPathKeys": [
-      "Input1.text"
-    ],
+    "jsonPathKeys": [],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2024-02-21T09:05:19Z"
+    "createdAt": "2024-05-06T10:18:04Z"
   },
-  "id": "User wise questions practiced Copy_Query1",
+  "id": "Users_Query4",
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_377f9b80-5123-4ef5-8e91-00b1a185df88"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_9aeb9903-81ad-443e-83fb-02701231d1d7"
 }
