@@ -1,27 +1,26 @@
 {
   "unpublishedPage": {
-    "name": "Parent Dashboard Test Query",
-    "slug": "parent-dashboard-test-query",
+    "name": "QuestionsAbhyas",
+    "slug": "questionsabhyas",
     "layouts": [
       {
         "viewMode": false,
         "dsl": {
           "widgetName": "MainContainer",
           "backgroundColor": "none",
-          "rightColumn": 4896,
+          "rightColumn": 1224,
           "snapColumns": 64,
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 920,
+          "bottomRow": 810,
           "containerStyle": "none",
-          "snapRows": 124,
+          "snapRows": 78,
           "parentRowSpace": 1,
           "type": "CANVAS_WIDGET",
           "canExtend": true,
           "version": 89,
-          "minHeight": 1292,
-          "dynamicTriggerPathList": [],
+          "minHeight": 800,
           "parentColumnSpace": 1,
           "dynamicBindingPathList": [],
           "leftColumn": 0
@@ -29,39 +28,26 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Parent Dashboard Test Query_Query3",
-              "name": "Query3",
+              "id": "QuestionsAbhyas_Query2",
+              "name": "Query2",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
               "jsonPathKeys": [],
               "timeoutInMillisecond": 10000
             },
             {
-              "id": "Parent Dashboard Test Query_Query5",
-              "name": "Query5",
+              "id": "QuestionsAbhyas_Query7",
+              "name": "Query7",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
               "jsonPathKeys": [],
-              "timeoutInMillisecond": 10000
-            }
-          ],
-          [
-            {
-              "id": "Parent Dashboard Test Query_Query2",
-              "name": "Query2",
-              "confirmBeforeExecute": false,
-              "pluginType": "DB",
-              "jsonPathKeys": [
-                "moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")",
-                "moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")"
-              ],
               "timeoutInMillisecond": 10000
             }
           ]
         ],
         "layoutOnLoadActionErrors": [],
         "validOnPageLoadActions": true,
-        "id": "Parent Dashboard Test Query",
+        "id": "QuestionsAbhyas",
         "deleted": false,
         "policies": [],
         "userPermissions": []
@@ -72,5 +58,5 @@
     "isHidden": false
   },
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_65814869e8be773c9dfa50ee"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_79637905-636e-4a9b-8a12-d4dc8bae1d2d"
 }

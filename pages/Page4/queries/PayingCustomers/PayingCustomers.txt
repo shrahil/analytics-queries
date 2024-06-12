@@ -1,0 +1,19 @@
+/* 
+  Query to fetch email addresses of all paying customers
+  who have successful payment status after a specific date.
+*/
+
+
+SELECT 
+    "up"."email"
+FROM 
+    "Payment" AS "p"
+JOIN 
+    "UserProfile" AS "up" 
+ON 
+    "p"."userId" = "up"."userId"
+WHERE 
+    "p"."status" = 'responseReceivedSuccess' 
+    AND "p"."createdAt" > '2024-05-04'
+		AND "p"."paymentForId" NOT IN (2135, 3092, 3125, 3257,3488, 3622, 3851)
+		

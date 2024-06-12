@@ -1,0 +1,16 @@
+/*
+  Query to fetch "questionId" along with "oldPageNum" and "newPageNum" from the "NcertSentence" table.
+  - Retrieves the list of "questionId" from "TestQuestion" where "testId" = 1330921.
+  - Joins with the "QuestionNcertSentence" table using "questionId".
+  - Joins with the "NcertSentence" table using "ncertSentenceId".
+  - Selects "questionId", "oldPageNum", and "newPageNum".
+*/
+SELECT 
+  "TestQuestion"."questionId", 
+	"QuestionNcertSentence"."ncertSentenceId",
+  "NcertSentence"."oldPageNum", 
+  "NcertSentence"."newPageNum"
+FROM "TestQuestion"
+JOIN "QuestionNcertSentence" ON "TestQuestion"."questionId" = "QuestionNcertSentence"."questionId"
+JOIN "NcertSentence" ON "QuestionNcertSentence"."ncertSentenceId" = "NcertSentence"."id"
+WHERE "TestQuestion"."testId" IN ('3577818', '3594338') AND "NcertSentence"."newPageNum" IS NOT NULL;

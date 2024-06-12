@@ -1,27 +1,26 @@
 {
   "unpublishedPage": {
-    "name": "Parent Dashboard Test Query",
-    "slug": "parent-dashboard-test-query",
+    "name": "Page3",
+    "slug": "page3",
     "layouts": [
       {
         "viewMode": false,
         "dsl": {
           "widgetName": "MainContainer",
           "backgroundColor": "none",
-          "rightColumn": 4896,
+          "rightColumn": 1224,
           "snapColumns": 64,
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 920,
+          "bottomRow": 610,
           "containerStyle": "none",
-          "snapRows": 124,
+          "snapRows": 78,
           "parentRowSpace": 1,
           "type": "CANVAS_WIDGET",
           "canExtend": true,
           "version": 89,
-          "minHeight": 1292,
-          "dynamicTriggerPathList": [],
+          "minHeight": 800,
           "parentColumnSpace": 1,
           "dynamicBindingPathList": [],
           "leftColumn": 0
@@ -29,26 +28,8 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Parent Dashboard Test Query_Query3",
-              "name": "Query3",
-              "confirmBeforeExecute": false,
-              "pluginType": "DB",
-              "jsonPathKeys": [],
-              "timeoutInMillisecond": 10000
-            },
-            {
-              "id": "Parent Dashboard Test Query_Query5",
-              "name": "Query5",
-              "confirmBeforeExecute": false,
-              "pluginType": "DB",
-              "jsonPathKeys": [],
-              "timeoutInMillisecond": 10000
-            }
-          ],
-          [
-            {
-              "id": "Parent Dashboard Test Query_Query2",
-              "name": "Query2",
+              "id": "Page3_No_practice_afterTrial",
+              "name": "No_practice_afterTrial",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
               "jsonPathKeys": [
@@ -61,16 +42,15 @@
         ],
         "layoutOnLoadActionErrors": [],
         "validOnPageLoadActions": true,
-        "id": "Parent Dashboard Test Query",
+        "id": "Page3",
         "deleted": false,
         "policies": [],
         "userPermissions": []
       }
     ],
     "userPermissions": [],
-    "policies": [],
-    "isHidden": false
+    "policies": []
   },
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_65814869e8be773c9dfa50ee"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_3d057772-a224-4f4a-ba62-48f21762768e"
 }

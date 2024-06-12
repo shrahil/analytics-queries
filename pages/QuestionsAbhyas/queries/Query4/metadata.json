@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "Query3",
+    "name": "Query4",
     "datasource": {
       "name": "learner1",
       "pluginId": "postgres-plugin",
@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Parent Dashboard Test Query",
+    "pageId": "QuestionsAbhyas",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "select * FROM \"TestQuestion\" WHERE \"testId\" = 1330921",
+      "body": "SELECT \n  \"TestQuestion\".\"questionId\",\n  \"QuestionChapterName\".\"chapterName\"\nFROM \"TestQuestion\"\nJOIN \"QuestionChapterName\" ON \"TestQuestion\".\"questionId\" = \"QuestionChapterName\".\"questionId\"\nWHERE \"TestQuestion\".\"testId\" IN ('3590142') ;",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -26,7 +26,7 @@
         }
       ]
     },
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "dynamicBindingPathList": [],
     "isValid": true,
     "invalids": [],
@@ -36,9 +36,9 @@
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2024-01-05T10:53:54Z"
+    "createdAt": "2024-06-05T11:51:19Z"
   },
-  "id": "Parent Dashboard Test Query_Query3",
+  "id": "QuestionsAbhyas_Query4",
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_6597dfc259aa5450e0eb4779"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_56a7e826-ba77-4e3f-b0d7-6b6b1ee2f7d7"
 }

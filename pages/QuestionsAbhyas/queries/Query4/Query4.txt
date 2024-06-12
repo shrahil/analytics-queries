@@ -1,0 +1,6 @@
+SELECT 
+  "TestQuestion"."questionId",
+  "QuestionChapterName"."chapterName"
+FROM "TestQuestion"
+JOIN "QuestionChapterName" ON "TestQuestion"."questionId" = "QuestionChapterName"."questionId"
+WHERE "TestQuestion"."testId" IN ('3590142') ;
