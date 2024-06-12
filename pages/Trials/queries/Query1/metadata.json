@@ -18,7 +18,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT * \nFROM \"UserCourse\" \nWHERE  \"createdAt\" >= {{moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")}}::date - interval '330 minutes'\n        AND \"createdAt\" <= {{moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")}}::date + interval '1110' \n\t\t\t\tAND (\"expiryAt\" - \"startedAt\") < interval '5 days';",
+      "body": "WITH trial_course_invitations AS (\n    SELECT \"userId\"\n    FROM \"UserCourse\"\n    WHERE \"createdAt\" >= {{moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")}}::date - interval '330 minutes'\n      AND \"createdAt\" <= {{moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")}}::date + interval '1110 minutes'\n      AND (\"expiryAt\" - \"startedAt\") < interval '5 days'\n),\nuser_emails AS (\n    SELECT \"id\" AS \"userId\", \"email\", \"phone\"\n    FROM \"User\"\n    WHERE \"id\" IN (SELECT \"userId\" FROM trial_course_invitations)\n),\nuser_profiles AS (\n    SELECT \"userId\", \"email\", \"phone\"\n    FROM \"UserProfile\"\n    WHERE \"userId\" IN (SELECT \"userId\" FROM trial_course_invitations)\n)\nSELECT \n    COALESCE(ue.\"email\", up.\"email\") AS \"email\",\n    COALESCE(ue.\"phone\", up.\"phone\") AS \"phone\"\nFROM \n    trial_course_invitations tci\nLEFT JOIN \n    user_emails ue ON tci.\"userId\" = ue.\"userId\"\nLEFT JOIN \n    user_profiles up ON tci.\"userId\" = up.\"userId\";\n",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
