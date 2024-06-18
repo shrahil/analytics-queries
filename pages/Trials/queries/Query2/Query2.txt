@@ -2,5 +2,5 @@ SELECT COUNT(DISTINCT "userId") as "Trials", "courseId"
 FROM "UserCourse" 
 WHERE  "createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes'
         AND "createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110' 
-				AND ("expiryAt" - "startedAt") < interval '5 days'
+				AND "trial" = true
 GROUP BY "courseId" ORDER BY "Trials" DESC;
