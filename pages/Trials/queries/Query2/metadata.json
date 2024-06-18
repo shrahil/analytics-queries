@@ -18,7 +18,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT * FROM \"CourseInvitation\" LIMIT 10;",
+      "body": "SELECT COUNT(DISTINCT \"userId\") as \"Trials\", \"courseId\"\nFROM \"UserCourse\" \nWHERE  \"createdAt\" >= {{moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")}}::date - interval '330 minutes'\n        AND \"createdAt\" <= {{moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")}}::date + interval '1110' \n\t\t\t\tAND (\"expiryAt\" - \"startedAt\") < interval '5 days'\nGROUP BY \"courseId\" ORDER BY \"Trials\" DESC;",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -26,12 +26,19 @@
         }
       ]
     },
-    "executeOnLoad": false,
-    "dynamicBindingPathList": [],
+    "executeOnLoad": true,
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "jsonPathKeys": [],
+    "jsonPathKeys": [
+      "moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")",
+      "moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")"
+    ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],

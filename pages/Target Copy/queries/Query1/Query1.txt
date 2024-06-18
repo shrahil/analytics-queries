@@ -1,1 +1,0 @@
-SELECT * FROM "TestAttempt" where "testId" = '3577818';

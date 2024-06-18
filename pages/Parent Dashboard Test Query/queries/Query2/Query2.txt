@@ -1,2 +1,0 @@
-
-SELECT sum("amount") FROM "Payment" where "createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes' and "createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110 minutes' and "status" = 'responseReceivedSuccess';

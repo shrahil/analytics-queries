@@ -9,7 +9,8 @@
     "leftColumn": 1,
     "dynamicBindingPathList": [
         {"key": "accentColor"},
-        {"key": "borderRadius"}
+        {"key": "borderRadius"},
+        {"key": "defaultDate"}
     ],
     "isDisabled": false,
     "isRequired": false,
@@ -26,6 +27,7 @@
     "mobileBottomRow": 12,
     "widgetName": "DatePicker1",
     "minDate": "1920-12-31T18:30:00.000Z",
+    "dynamicPropertyPathList": [{"key": "defaultDate"}],
     "displayName": "DatePicker",
     "searchTags": ["calendar"],
     "bottomRow": 12,
@@ -38,7 +40,7 @@
     "labelPosition": "Top",
     "key": "00evfzpaz3",
     "labelTextSize": "0.875rem",
-    "defaultDate": "2024-01-27T11:20:00.319Z",
+    "defaultDate": "{{new Date(new Date().getFullYear(), new Date().getMonth(), 1).toISOString()}}",
     "isDeprecated": false,
     "rightColumn": 21,
     "widgetId": "7a6lokw3hq",

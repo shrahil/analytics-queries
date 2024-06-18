@@ -1,1 +1,0 @@
-SELECT * FROM "UserProfile" where  "UserProfile"."createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes' LIMIT 10;

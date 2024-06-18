@@ -1,1 +1,0 @@
-SELECT * FROM "Payment" where "paymentForId" = '4016' and "status" = 'responseReceivedSuccess' and "createdAt" > '2024-05-05'

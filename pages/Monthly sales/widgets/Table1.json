@@ -59,7 +59,7 @@
         "productRevenue",
         "month"
     ],
-    "dynamicPropertyPathList": [],
+    "dynamicPropertyPathList": [{"key": "tableData"}],
     "displayName": "Table",
     "bottomRow": 73,
     "columnWidthMap": {
@@ -139,7 +139,7 @@
     "textSize": "0.875rem",
     "widgetId": "kctot90dz0",
     "enableServerSideFiltering": false,
-    "tableData": "{{Query3.data}}",
+    "tableData": "{{Query1.data}}",
     "label": "Data",
     "searchKey": "",
     "parentId": "0",

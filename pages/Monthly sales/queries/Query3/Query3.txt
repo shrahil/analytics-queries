@@ -1,3 +1,0 @@
-SELECT "userId", COUNT(*) AS num_questions
-FROM "Answer" WHERE "createdAt" > '2023-11-01'
-GROUP BY "userId" ORDER BY num_questions DESC;

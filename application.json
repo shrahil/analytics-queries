@@ -1,39 +1,11 @@
 {
   "pages": [
     {
-      "id": "Page1",
-      "isDefault": false
-    },
-    {
-      "id": "User wise questions practiced",
-      "isDefault": false
-    },
-    {
       "id": "Payments",
       "isDefault": true
     },
     {
-      "id": "Ignite",
-      "isDefault": false
-    },
-    {
-      "id": "Target Copy",
-      "isDefault": false
-    },
-    {
-      "id": "Ignite Courses",
-      "isDefault": false
-    },
-    {
-      "id": "Ignite Courses Copy",
-      "isDefault": false
-    },
-    {
       "id": "Emails",
-      "isDefault": false
-    },
-    {
-      "id": "Course Invitations Sent",
       "isDefault": false
     },
     {
@@ -49,18 +21,6 @@
       "isDefault": false
     },
     {
-      "id": "Monthly sales Copy",
-      "isDefault": false
-    },
-    {
-      "id": "Parent Dashboard Test Query",
-      "isDefault": false
-    },
-    {
-      "id": "Abhyas Customers",
-      "isDefault": false
-    },
-    {
       "id": "Trials",
       "isDefault": false
     },
@@ -70,10 +30,6 @@
     },
     {
       "id": "Video Library",
-      "isDefault": false
-    },
-    {
-      "id": "User Profile Table",
       "isDefault": false
     },
     {

@@ -1,1 +1,0 @@
-SELECT * FROM "UserProfile" where "userId" = '1758585'  LIMIT 10;

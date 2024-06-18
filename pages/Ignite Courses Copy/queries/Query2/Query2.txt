@@ -1,1 +1,0 @@
-SELECT * FROM "Answer" LIMIT 10;
