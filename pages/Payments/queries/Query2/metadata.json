@@ -18,7 +18,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT COUNT(DISTINCT \"Payment\".\"userId\") \nFROM \"Payment\" \nWHERE \"createdAt\" > '2021-04-01' and \"createdAt\" < '2022-03-31'\n  AND \"status\" = 'responseReceivedSuccess';",
+      "body": "SELECT *\nFROM \"Payment\" \nWHERE\n    \"Payment\".\"createdAt\" >= {{moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")}}::date - interval '330 minutes'\n    AND\n    \"Payment\".\"createdAt\" <= {{moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")}}::date + interval '1110 minutes' AND \"status\" = 'responseReceivedSuccess';",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -26,12 +26,19 @@
         }
       ]
     },
-    "executeOnLoad": false,
-    "dynamicBindingPathList": [],
+    "executeOnLoad": true,
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "jsonPathKeys": [],
+    "jsonPathKeys": [
+      "moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")",
+      "moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")"
+    ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],

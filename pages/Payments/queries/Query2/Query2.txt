@@ -1,4 +1,6 @@
-SELECT COUNT(DISTINCT "Payment"."userId") 
+SELECT *
 FROM "Payment" 
-WHERE "createdAt" > '2021-04-01' and "createdAt" < '2022-03-31'
-  AND "status" = 'responseReceivedSuccess';
+WHERE
+    "Payment"."createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes'
+    AND
+    "Payment"."createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110 minutes' AND "status" = 'responseReceivedSuccess';

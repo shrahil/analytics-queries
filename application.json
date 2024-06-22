@@ -75,6 +75,10 @@
     {
       "id": "Page4",
       "isDefault": false
+    },
+    {
+      "id": "CustomerPracticeData",
+      "isDefault": false
     }
   ],
   "viewMode": false,

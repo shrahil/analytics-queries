@@ -13,7 +13,7 @@
         {"key": "defaultDate"}
     ],
     "isDisabled": false,
-    "onDateSelected": "{{Query1.run()}}",
+    "onDateSelected": "{{Query2.run()}}",
     "isRequired": false,
     "dynamicHeight": "FIXED",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",

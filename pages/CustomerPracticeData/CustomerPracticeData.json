@@ -1,27 +1,26 @@
 {
   "unpublishedPage": {
-    "name": "Payments",
-    "slug": "payments",
+    "name": "CustomerPracticeData",
+    "slug": "customerpracticedata",
     "layouts": [
       {
         "viewMode": false,
         "dsl": {
           "widgetName": "MainContainer",
           "backgroundColor": "none",
-          "rightColumn": 4896,
+          "rightColumn": 1224,
           "snapColumns": 64,
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 910,
+          "bottomRow": 770,
           "containerStyle": "none",
-          "snapRows": 124,
+          "snapRows": 83,
           "parentRowSpace": 1,
           "type": "CANVAS_WIDGET",
           "canExtend": true,
           "version": 89,
-          "minHeight": 1292,
-          "dynamicTriggerPathList": [],
+          "minHeight": 850,
           "parentColumnSpace": 1,
           "dynamicBindingPathList": [],
           "leftColumn": 0
@@ -29,8 +28,8 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Payments_Query2",
-              "name": "Query2",
+              "id": "CustomerPracticeData_Query1",
+              "name": "Query1",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
               "jsonPathKeys": [
@@ -43,7 +42,7 @@
         ],
         "layoutOnLoadActionErrors": [],
         "validOnPageLoadActions": true,
-        "id": "Payments",
+        "id": "CustomerPracticeData",
         "deleted": false,
         "policies": [],
         "userPermissions": []
@@ -54,5 +53,5 @@
     "isHidden": false
   },
   "deleted": false,
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_64b92e3951b06c6cdc1f0c8a"
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_9220264d-2608-4ec3-a8ee-cd963950491d"
 }

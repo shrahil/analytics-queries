@@ -1,0 +1,56 @@
+/*
+Query to get the number of days users practiced out of the total available days before May 5, 2024,
+for all users who made a purchase within a specified date range, sorted by highest to lowest practice days.
+Assumptions:
+1. "Payment" table has columns "userId", "status", and "createdAt".
+2. "DailyUserEvent" table has columns "userId", "event", and "eventDate".
+3. Date range inputs are provided by DatePicker1 and DatePicker2.
+*/
+
+WITH PurchasedUsers AS (
+    -- Get all users who made a purchase within the specified date range
+    SELECT DISTINCT "userId", MIN("createdAt") AS "firstPurchaseDate"
+    FROM "Payment"
+    WHERE "status" = 'responseReceivedSuccess'
+    AND "createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes'
+    AND "createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110 minutes'
+    GROUP BY "userId"
+),
+PracticedDays AS (
+    -- Get the number of days each user practiced before May 5, 2024
+    SELECT 
+        "userId", 
+        COUNT(DISTINCT "eventDate") AS "practicedDays"
+    FROM 
+        "DailyUserEvent"
+    WHERE 
+        "event" = 'Question'
+    AND 
+        "eventDate" < '2024-05-05'
+    GROUP BY 
+        "userId"
+),
+TotalDaysPerUser AS (
+    -- Calculate the total number of available days from the date of first purchase to May 5, 2024 for each user
+    SELECT 
+        PU."userId",
+        COUNT(*) AS "totalDays"
+    FROM 
+        PurchasedUsers PU,
+        generate_series(PU."firstPurchaseDate"::date, '2024-05-04'::date, '1 day') AS available_dates
+    GROUP BY 
+        PU."userId"
+)
+-- Combine the results to get the final output
+SELECT
+    PU."userId",
+    COALESCE(PD."practicedDays", 0) AS "practicedDays",
+    TDPU."totalDays"
+FROM
+    PurchasedUsers PU
+LEFT JOIN
+    PracticedDays PD ON PU."userId" = PD."userId"
+JOIN
+    TotalDaysPerUser TDPU ON PU."userId" = TDPU."userId"
+ORDER BY
+    "practicedDays" DESC;
