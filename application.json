@@ -1,5 +1,12 @@
 {
   "appIsExample": false,
+  "applicationDetail": {
+    "themeSetting": {
+      "appMaxWidth": "LARGE",
+      "density": 1.0,
+      "sizing": 1.0
+    }
+  },
   "applicationVersion": 2,
   "collapseInvisibleWidgets": true,
   "color": "#F5D1D1",
@@ -86,5 +93,12 @@
       "id": "CustomerPracticeData",
       "isDefault": false
     }
-  ]
+  ],
+  "unpublishedApplicationDetail": {
+    "themeSetting": {
+      "appMaxWidth": "LARGE",
+      "density": 1.0,
+      "sizing": 1.0
+    }
+  }
 }
