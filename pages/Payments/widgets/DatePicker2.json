@@ -55,7 +55,7 @@
   "mobileLeftColumn": 0,
   "mobileRightColumn": 15,
   "mobileTopRow": 6,
-  "onDateSelected": "{{Query2.run()}}",
+  "onDateSelected": "{{Query2.run();\nQuery8.run()}}",
   "parentColumnSpace": 18.859375,
   "parentId": "0",
   "parentRowSpace": 10,
