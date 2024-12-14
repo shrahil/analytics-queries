@@ -1,3 +1,13 @@
-SELECT count("id") as  "newUsers"
+SELECT ("User"."createdAt" + interval '330 minutes')::date as "date", count("User"."id") AS "newUsers" 
 FROM "User"
-WHERE "User"."createdAt" >= '2024-05-05' ;
+-- Subquery to check if there is no related entry in the CourseInvitation table for courseId = 2135 and matching email
+WHERE "User"."createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes'
+  AND "User"."createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110 minutes'
+  AND NOT EXISTS (
+    -- Checking if the user has no corresponding entry in the CourseInvitation table for courseId 2135 based on email
+    SELECT 1
+    FROM "UserCourse"
+    WHERE "UserCourse"."userId" = "User"."id"
+      AND "UserCourse"."courseId" = '2135'
+  )
+	GROUP by "date";

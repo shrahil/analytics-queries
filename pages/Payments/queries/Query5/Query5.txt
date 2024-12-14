@@ -1,0 +1,37 @@
+-- Step 1: Calculate the total sum of all entries
+SELECT 
+    COUNT("p"."id") AS total_payments,
+    SUM("p"."amount") AS total_amount,
+    NULL AS payment_reference  -- Use NULL to avoid type conflict
+FROM 
+    "Payment" p
+LEFT JOIN 
+    "CourseInvitation" ci ON p."userEmail" = ci."email"
+WHERE 
+    p."createdAt" >= {{moment(DatePicker1.selectedDate).format('YYYY-MM-DD')}}::date - interval '330 minutes'
+    AND
+    p."createdAt" <= {{moment(DatePicker2.selectedDate).format('YYYY-MM-DD')}}::date + interval '1110 minutes'
+    AND 
+    p."status" = 'responseReceivedSuccess'
+
+UNION ALL
+
+-- Step 2: Calculate the breakdown of entries grouped by payment reference
+SELECT 
+    COUNT("p"."id") AS total_payments,
+    SUM("p"."amount") AS total_amount,
+    COALESCE("p"."paymentForId", "ci"."courseId") AS payment_reference
+FROM 
+    "Payment" p
+LEFT JOIN 
+    "CourseInvitation" ci ON p."userEmail" = ci."email"
+WHERE 
+    p."createdAt" >= {{moment(DatePicker1.selectedDate).format('YYYY-MM-DD')}}::date - interval '330 minutes'
+    AND
+    p."createdAt" <= {{moment(DatePicker2.selectedDate).format('YYYY-MM-DD')}}::date + interval '1110 minutes'
+    AND 
+    p."status" = 'responseReceivedSuccess'
+GROUP BY 
+    COALESCE("p"."paymentForId", "ci"."courseId")
+ORDER BY 
+    payment_reference;

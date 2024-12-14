@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_31649d9d-11ce-4ba0-bc14-8cac72838274",
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_b01a24a4-663f-4a0f-b311-28fcd2131daf",
   "id": "Payments_Query3",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT COUNT(DISTINCT \"id\") FROM \"User\" WHERE \"createdAt\" < '2023-05-07';",
+      "body": "SELECT SUM(\"amount\")\nFROM \"Payment\" \nWHERE\n    \"Payment\".\"createdAt\" >= {{moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")}}::date - interval '330 minutes'\n    AND\n    \"Payment\".\"createdAt\" <= {{moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")}}::date + interval '1110 minutes' AND \"status\" = 'responseReceivedSuccess' AND \"paymentForId\" IN ('4511');",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -22,7 +22,11 @@
       "name": "learner1",
       "pluginId": "postgres-plugin"
     },
-    "dynamicBindingPathList": [],
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
     "executeOnLoad": false,
     "name": "Query3",
     "pageId": "Payments",

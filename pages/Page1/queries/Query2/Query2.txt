@@ -1,0 +1,1 @@
+SELECT * FROM "Payment" where "paymentForId" = '4379' and "status" = 'responseReceivedSuccess' AND "createdAt" > '2024-01-01';

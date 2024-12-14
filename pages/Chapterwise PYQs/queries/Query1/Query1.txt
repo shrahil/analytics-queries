@@ -1,0 +1,17 @@
+/*
+  Query to count the number of questions per chapter
+  for the given test IDs in the TestQuestion table.
+*/
+
+SELECT 
+    "cq"."chapterId",
+    COUNT("cq"."questionId") AS "number_of_questions"
+FROM 
+    "ChapterQuestion" AS "cq"
+INNER JOIN 
+    "TestQuestion" AS "tq"
+    ON "cq"."questionId" = "tq"."questionId"
+WHERE 
+    "tq"."testId" IN (3577818, 3994338, 2568452, 2524911, 1854162, 1780731, 1153023, 30571, 419)
+GROUP BY 
+    "cq"."chapterId" ORDER BY "number_of_questions" DESC;

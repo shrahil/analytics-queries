@@ -1,17 +1,10 @@
 {
   "appIsExample": false,
-  "applicationDetail": {
-    "themeSetting": {
-      "appMaxWidth": "LARGE",
-      "density": 1.0,
-      "sizing": 1.0
-    }
-  },
   "applicationVersion": 2,
   "collapseInvisibleWidgets": true,
   "color": "#F5D1D1",
   "evaluationVersion": 2,
-  "icon": "dollar",
+  "icon": "bar-graph",
   "pages": [
     {
       "id": "Payments",
@@ -70,7 +63,7 @@
       "isDefault": false
     },
     {
-      "id": "Page2",
+      "id": "Chapterwise PYQs",
       "isDefault": false
     },
     {
@@ -92,13 +85,18 @@
     {
       "id": "CustomerPracticeData",
       "isDefault": false
+    },
+    {
+      "id": "Baby Test Copy",
+      "isDefault": false
+    },
+    {
+      "id": "Questions",
+      "isDefault": false
+    },
+    {
+      "id": "Book Sales",
+      "isDefault": false
     }
-  ],
-  "unpublishedApplicationDetail": {
-    "themeSetting": {
-      "appMaxWidth": "LARGE",
-      "density": 1.0,
-      "sizing": 1.0
-    }
-  }
+  ]
 }

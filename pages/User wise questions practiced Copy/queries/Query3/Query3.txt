@@ -1,0 +1,11 @@
+SELECT 
+    DATE("createdAt") AS "date", -- Extract the date part from the timestamp
+    COUNT(*) AS "row_count"     -- Count the number of rows for each date
+FROM 
+    "Answer"
+WHERE 
+    "userId" = '1593590'        -- Filter for the specified userId
+GROUP BY 
+    DATE("createdAt")           -- Group by the extracted date
+ORDER BY 
+    "date" ASC ;                -- Optional: Order the results by date                    -- Limit the number of results to 10

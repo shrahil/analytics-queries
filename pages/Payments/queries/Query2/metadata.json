@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT *\nFROM \"Payment\" \nWHERE\n    \"Payment\".\"createdAt\" >= {{moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")}}::date - interval '330 minutes'\n    AND\n    \"Payment\".\"createdAt\" <= {{moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")}}::date + interval '1110 minutes' AND \"status\" = 'responseReceivedSuccess';",
+      "body": "SELECT \n    p.\"amount\", \n\t\tp.\"id\",\n    uc.\"expiryAt\"\nFROM \n    \"Payment\" p\nJOIN \n    \"UserCourse\" uc ON p.\"userId\" = uc.\"userId\"\nWHERE \n    p.\"createdAt\" >= {{moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")}}::date - interval '330 minutes'\n    AND p.\"createdAt\" <= {{moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")}}::date + interval '1110 minutes'\n    AND p.\"status\" = 'responseReceivedSuccess'\n    AND p.\"paymentForId\" IN ('3125', '3257', '3488', '3622', '3851')\n    AND p.\"amount\" = 899\nORDER BY \n    uc.\"expiryAt\", p.\"amount\"",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -27,7 +27,7 @@
         "key": "body"
       }
     ],
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "name": "Query2",
     "pageId": "Payments",
     "userSetOnLoad": false

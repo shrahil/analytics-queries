@@ -1,0 +1,50 @@
+WITH PaymentData AS (
+    /* Filter payments based on date range and status */
+    SELECT 
+        "id", 
+        "amount", 
+        "paymentForId", 
+        "userEmail", 
+        "createdAt" 
+    FROM 
+        "Payment" 
+    WHERE 
+        "createdAt" >= {{moment(DatePicker1.selectedDate).format('YYYY-MM-DD')}}::date - INTERVAL '330 minutes'
+        AND "createdAt" <= {{moment(DatePicker2.selectedDate).format('YYYY-MM-DD')}}::date + INTERVAL '1110 minutes'
+        AND "status" = 'responseReceivedSuccess'
+),
+MatchedPayments AS (
+    /* Match payments with CourseInvitation based on email and amount */
+    SELECT 
+        p."id", 
+        p."amount", 
+        COALESCE(p."paymentForId", ci."courseId") AS "resolvedPaymentForId"
+    FROM 
+        PaymentData p
+    LEFT JOIN 
+        "CourseInvitation" ci 
+    ON 
+        p."userEmail" = ci."email" 
+        AND p."amount" = ci."amount"
+),
+AggregatedPayments AS (
+    /* Aggregate the payments by resolved paymentForId */
+    SELECT 
+        SUM(m."amount") AS total_amount,
+        m."resolvedPaymentForId"
+    FROM 
+        MatchedPayments m
+    GROUP BY 
+        m."resolvedPaymentForId"
+)
+SELECT 
+    ap.total_amount,
+    ap."resolvedPaymentForId",
+    c."name" AS course_name
+FROM 
+    AggregatedPayments ap
+LEFT JOIN 
+    "Course" c 
+ON 
+    ap."resolvedPaymentForId" = c."id"
+		Order by ap.total_amount DESC;

@@ -1,0 +1,18 @@
+SELECT 
+    COUNT("p"."id") AS total_payments,
+    SUM("p"."amount") AS total_amount,
+    COALESCE("p"."paymentForId", "ci"."courseId") AS payment_reference -- Use paymentForId if available, otherwise use CourseInvitation id
+FROM 
+    "Payment" p
+LEFT JOIN 
+    "CourseInvitation" ci ON p."userEmail" = ci."email" -- Join on userEmail from Payment to email of CourseInvitation
+WHERE 
+    p."createdAt" >= {{moment(DatePicker1.selectedDate).format('YYYY-MM-DD')}}::date - interval '330 minutes'
+    AND
+    p."createdAt" <= {{moment(DatePicker2.selectedDate).format('YYYY-MM-DD')}}::date + interval '1110 minutes'
+    AND 
+    p."status" = 'responseReceivedSuccess'
+GROUP BY 
+    COALESCE("p"."paymentForId", "ci"."courseId")  -- Group by the combined field to handle null paymentForId
+ORDER BY 
+    payment_reference;

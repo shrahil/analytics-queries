@@ -1,0 +1,1 @@
+SELECT * FROM "Payment"  where "pincode" is not null and "address1" is not null and "status" = 'responseReceivedSuccess' and "createdAt" > '2024-10-01' and "createdAt" < '2024-11-01' ;

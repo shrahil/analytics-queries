@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT COUNT(\"id\"), \"neetExamYear\" FROM \"UserProfile\"  where \"createdAt\" > '2024-04-01' GROUP BY \"neetExamYear\";",
+      "body": "SELECT count (\"userId\") as \"Paying_Users\"\nFROM \"Payment\"\nWHERE \"Payment\".\"createdAt\" >= {{moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")}}::date - interval '330 minutes'\nAND \"Payment\".\"createdAt\" <= {{moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")}}::date + interval '1110 minutes'\nAND \"status\" = 'responseReceivedSuccess'\nAND (\"paymentForId\" != 2135 OR \"paymentForId\" IS NULL);\n",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -22,8 +22,12 @@
       "name": "learner1",
       "pluginId": "postgres-plugin"
     },
-    "dynamicBindingPathList": [],
-    "executeOnLoad": false,
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
+    "executeOnLoad": true,
     "name": "Query2",
     "pageId": "Users",
     "userSetOnLoad": false

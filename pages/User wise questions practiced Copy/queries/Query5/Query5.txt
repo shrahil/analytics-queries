@@ -1,0 +1,16 @@
+/*
+  This query retrieves specific fields from the "Answer" and "Question" tables for a specific user.
+  It selects the "questionId" from the "Answer" table, and the "question", "correctOptionIndex", "explanation", "topicId", and "subjectId" from the "Question" table.
+  The tables are joined based on the "questionId" from the "Answer" table and the "id" from the "Question" table.
+*/
+
+SELECT a."questionId", 
+       q."question", 
+       q."correctOptionIndex", 
+       q."explanation", 
+       q."topicId", 
+       q."subjectId"
+FROM "Answer" a
+JOIN "Question" q ON a."questionId" = q."id"
+WHERE a."userId" = '1593590'
+and a."createdAt" > '2024-03-31' and a."createdAt" < '2024-05-10';

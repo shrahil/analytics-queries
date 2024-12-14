@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_871727a1-888a-46e8-8a78-85d5a2862e4b",
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_e56f47c3-0fa2-4dce-89ff-5a99f7100b63",
   "id": "Page1_Query1",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT * FROM \"ShopifyOrderData\" ;",
+      "body": "SELECT sum(\"amount\"), \"amount\", \"paymentForId\" FROM \"Payment\"  where \"pincode\" is not null and \"address1\" is not null and \"status\" = 'responseReceivedSuccess' and \"createdAt\" > '2024-10-01' and \"createdAt\" > '2024-10-31' GROUP BY \"amount\", \"paymentForId\"; ",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -23,7 +23,7 @@
       "pluginId": "postgres-plugin"
     },
     "dynamicBindingPathList": [],
-    "executeOnLoad": false,
+    "executeOnLoad": true,
     "name": "Query1",
     "pageId": "Page1",
     "userSetOnLoad": false

@@ -1,0 +1,12 @@
+SELECT "User"."id", "User"."email", "User"."createdAt"
+FROM "User"
+-- Subquery to check if the user has a corresponding entry in the CourseInvitation table for courseId = 2135 and matching email
+WHERE "User"."createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes'
+  AND "User"."createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110 minutes'
+  AND EXISTS (
+    -- Checking if the user has a corresponding entry in the CourseInvitation table based on email
+    SELECT 1
+    FROM "CourseInvitation"
+    WHERE "CourseInvitation"."email" = "User"."email"
+      AND "CourseInvitation"."courseId" = 2135
+  );
