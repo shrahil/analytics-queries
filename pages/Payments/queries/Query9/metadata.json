@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_b01a24a4-663f-4a0f-b311-28fcd2131daf",
-  "id": "Payments_Query3",
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_c633aeaf-a580-406d-bb25-2109c0520e8f",
+  "id": "Payments_Query9",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT \"userEmail\", \"userPhone\", \"userName\"\nFROM \"Payment\" \nWHERE\n    \"Payment\".\"createdAt\" >= {{moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")}}::date - interval '330 minutes'\n    AND\n    \"Payment\".\"createdAt\" <= {{moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")}}::date + interval '1110 minutes' AND \"status\" = 'responseReceivedSuccess' AND \"paymentForId\" IN ('3521') AND \"userEmail\" IS NOT NULL;",
+      "body": "SELECT sum(\"amount\"), \"userState\"\nFROM \"Payment\" \nWHERE\n    \"Payment\".\"createdAt\" >= {{moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")}}::date - interval '330 minutes'\n    AND\n    \"Payment\".\"createdAt\" <= {{moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")}}::date + interval '1110 minutes' AND \"status\" = 'responseReceivedSuccess' AND \"paymentForId\" IN ('3521') AND \"userState\" IS NOT NULL GROUP BY \"userState\";",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -28,7 +28,7 @@
       }
     ],
     "executeOnLoad": true,
-    "name": "Query3",
+    "name": "Query9",
     "pageId": "Payments",
     "userSetOnLoad": false
   }

@@ -1,6 +1,6 @@
-SELECT SUM("amount")
+SELECT "userEmail", "userPhone", "userName"
 FROM "Payment" 
 WHERE
     "Payment"."createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes'
     AND
-    "Payment"."createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110 minutes' AND "status" = 'responseReceivedSuccess' AND "paymentForId" IN ('4511');
+    "Payment"."createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110 minutes' AND "status" = 'responseReceivedSuccess' AND "paymentForId" IN ('3521') AND "userEmail" IS NOT NULL;

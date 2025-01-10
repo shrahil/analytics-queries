@@ -97,6 +97,10 @@
     {
       "id": "Book Sales",
       "isDefault": false
+    },
+    {
+      "id": "RecoQuestions",
+      "isDefault": false
     }
   ]
 }

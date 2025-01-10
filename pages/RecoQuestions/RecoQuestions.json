@@ -1,24 +1,23 @@
 {
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_64b92e3951b06c6cdc1f0c8a",
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_cce93c0b-0f6d-4390-8dc3-2dcbc8b92938",
   "unpublishedPage": {
     "isHidden": false,
     "layouts": [
       {
         "dsl": {
           "backgroundColor": "none",
-          "bottomRow": 2820,
+          "bottomRow": 390,
           "canExtend": true,
           "containerStyle": "none",
           "detachFromLayout": true,
           "dynamicBindingPathList": [],
-          "dynamicTriggerPathList": [],
           "leftColumn": 0,
-          "minHeight": 1292,
+          "minHeight": 580,
           "parentColumnSpace": 1,
           "parentRowSpace": 1,
-          "rightColumn": 4896,
+          "rightColumn": 1224,
           "snapColumns": 64,
-          "snapRows": 124,
+          "snapRows": 56,
           "topRow": 0,
           "type": "CANVAS_WIDGET",
           "version": 91,
@@ -27,7 +26,7 @@
         }
       }
     ],
-    "name": "Payments",
-    "slug": "payments"
+    "name": "RecoQuestions",
+    "slug": "recoquestions"
   }
 }
