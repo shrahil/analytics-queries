@@ -1,6 +1,24 @@
-SELECT "userEmail", "userPhone", "userName"
-FROM "Payment" 
+/* 
+Retrieve state and city for each user in the Payment table.
+If userState or userCity is NULL or empty in the Payment table,
+retrieve city and state from the UserProfile table.
+*/
+
+SELECT 
+    p."userId", p."createdAt"::date, p."id", p."amount",
+    COALESCE(NULLIF(p."userState", ''), up."state") AS "state",
+    COALESCE(NULLIF(p."userCity", ''), up."city") AS "city",
+COALESCE(NULLIF(p."userName", ''), up."displayName") AS "name",
+COALESCE(NULLIF(p."userEmail", ''), up."email") AS "email",
+up."boardExamYear", 
+up."neetExamYear"
+FROM 
+    "Payment" p
+LEFT JOIN 
+    "UserProfile" up
+ON 
+    p."userId" = up."userId"
 WHERE
-    "Payment"."createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes'
+    p."createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes'
     AND
-    "Payment"."createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110 minutes' AND "status" = 'responseReceivedSuccess' AND "paymentForId" IN ('3521') AND "userEmail" IS NOT NULL;
+    p."createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110 minutes' AND "status" = 'responseReceivedSuccess' ORDER BY p."createdAt";
