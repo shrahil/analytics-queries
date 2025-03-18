@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT SUM(\"eventCount\") FROM \"DailyUserEvent\" where \"event\" = 'Question' AND \"eventDate\" > '2024-04-01';",
+      "body": "SELECT \n    \"userId\" AS \"FreeUsers\"\nFROM (\n    SELECT \n        \"userId\",\n        SUM(\"eventCount\") AS \"totalQuestions\",\n        MAX(\"eventDate\") AS \"lastEventDate\"\n    FROM \n        \"DailyUserEvent\"\n    WHERE \n        \"event\" = 'Question'\n\t\t\t\tand \"eventDate\" > '2024-05-05' -- Only consider events of type 'Question'\n    GROUP BY \n        \"userId\"\n    HAVING \n        SUM(\"eventCount\") BETWEEN 200 AND 500 -- Filter users who practiced between 200 and 500 questions\n        AND MAX(\"eventDate\") > '2025-01-01' -- Ensure the latest event date for the user is after January 1, 2025\n) AS filteredUsers\nWHERE \n    \"userId\" NOT IN (\n        SELECT DISTINCT \"userId\"\n        FROM \"UserCourse\"\n        WHERE \"expiryAt\" > '2025-02-28' or \"courseId\" = 2135\n\t\t\t-- Active course as of today\n    );\n",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -13,7 +13,7 @@
           "value": true
         }
       ],
-      "timeoutInMillisecond": 10000
+      "timeoutInMillisecond": 50000
     },
     "confirmBeforeExecute": false,
     "datasource": {

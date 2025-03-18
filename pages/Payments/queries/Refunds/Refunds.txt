@@ -1,0 +1,3 @@
+SELECT SUM("amount"), "status" FROM "Payment" p WHERE p."createdAt" >= {{moment(DatePicker1.selectedDate).format("YYYY-MM-DD")}}::date - interval '330 minutes'
+    AND p."createdAt" <= {{moment(DatePicker2.selectedDate).format("YYYY-MM-DD")}}::date + interval '1110 minutes'
+    GROUP BY p."status";

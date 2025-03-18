@@ -466,7 +466,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 64,
   "searchKey": "",
-  "tableData": "{{Query3.data}}",
+  "tableData": "{{Stattwise.data}}",
   "textSize": "0.875rem",
   "topRow": 100,
   "totalRecordsCount": 0,

@@ -1,0 +1,1 @@
+SELECT * FROM "Answer" where "userId"='1817846';

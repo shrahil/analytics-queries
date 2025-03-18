@@ -27,7 +27,7 @@
         "key": "body"
       }
     ],
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "name": "Query7",
     "pageId": "Payments",
     "userSetOnLoad": false

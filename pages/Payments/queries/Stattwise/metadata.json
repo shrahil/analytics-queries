@@ -1,6 +1,6 @@
 {
   "gitSyncId": "64b92e3951b06c6cdc1f0c88_b01a24a4-663f-4a0f-b311-28fcd2131daf",
-  "id": "Payments_Query3",
+  "id": "Payments_Stattwise",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
@@ -28,7 +28,7 @@
       }
     ],
     "executeOnLoad": true,
-    "name": "Query3",
+    "name": "Stattwise",
     "pageId": "Payments",
     "userSetOnLoad": false
   }

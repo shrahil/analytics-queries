@@ -4,7 +4,7 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
-  "bottomRow": 50,
+  "bottomRow": 311,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "canFreezeColumn": true,
   "childStylesheet": {
@@ -31,19 +31,23 @@
     }
   },
   "columnOrder": [
-    "name",
-    "id"
+    "sum",
+    "status"
   ],
-  "columnUpdatedAt": 1739874811292,
+  "columnUpdatedAt": 1739167596702,
   "columnWidthMap": {},
+  "customIsLoading": false,
+  "customIsLoadingValue": "",
   "defaultPageSize": 0,
   "defaultSelectedRowIndex": 0,
   "defaultSelectedRowIndices": [
     0
   ],
   "delimiter": ",",
-  "displayName": "Table",
   "dynamicBindingPathList": [
+    {
+      "key": "tableData"
+    },
     {
       "key": "accentColor"
     },
@@ -54,13 +58,10 @@
       "key": "boxShadow"
     },
     {
-      "key": "tableData"
+      "key": "primaryColumns.sum.computedValue"
     },
     {
-      "key": "primaryColumns.name.computedValue"
-    },
-    {
-      "key": "primaryColumns.id.computedValue"
+      "key": "primaryColumns.status.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -71,53 +72,41 @@
   "dynamicTriggerPathList": [],
   "enableClientSideSearch": true,
   "flexVerticalAlignment": "start",
-  "hideCard": false,
   "horizontalAlignment": "LEFT",
-  "iconSVG": "/static/media/icon.c4395b694ca4b5a84741345b057b6866.svg",
   "inlineEditingSaveOption": "ROW_LEVEL",
-  "isDeprecated": false,
   "isLoading": false,
   "isSortable": true,
   "isVisible": true,
   "isVisibleDownload": true,
-  "isVisibleFilters": true,
+  "isVisibleFilters": false,
   "isVisiblePagination": true,
   "isVisibleSearch": true,
-  "key": "5awp27w8gp",
+  "key": "razvlaiaj5",
   "label": "Data",
   "leftColumn": 0,
   "minWidth": 450,
-  "mobileBottomRow": 50,
+  "mobileBottomRow": 311,
   "mobileLeftColumn": 0,
-  "mobileRightColumn": 20,
-  "mobileTopRow": 22,
+  "mobileRightColumn": 34,
+  "mobileTopRow": 283,
   "needsErrorInfo": false,
-  "needsHeightForContent": true,
-  "onCanvasUI": {
-    "disableParentSelection": false,
-    "focusBGCSSVar": "--on-canvas-ui-widget-focus",
-    "focusColorCSSVar": "--on-canvas-ui-widget-selection",
-    "selectionBGCSSVar": "--on-canvas-ui-widget-selection",
-    "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
-  },
-  "parentColumnSpace": 19.234375,
   "parentId": "0",
   "parentRowSpace": 10,
   "primaryColumns": {
-    "id": {
-      "alias": "id",
+    "status": {
+      "alias": "status",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
-      "columnType": "number",
-      "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"id\"]))}}",
+      "columnType": "text",
+      "computedValue": "{{Table7.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"status\"]))}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
       "enableSort": true,
       "fontStyle": "",
       "horizontalAlignment": "LEFT",
-      "id": "id",
+      "id": "status",
       "index": 1,
       "isCellEditable": false,
       "isCellVisible": true,
@@ -127,9 +116,9 @@
       "isEditable": false,
       "isSaveVisible": true,
       "isVisible": true,
-      "label": "id",
+      "label": "status",
       "notation": "standard",
-      "originalId": "id",
+      "originalId": "status",
       "sticky": "",
       "textColor": "",
       "textSize": "0.875rem",
@@ -138,18 +127,20 @@
       "verticalAlignment": "CENTER",
       "width": 150
     },
-    "name": {
-      "alias": "name",
+    "sum": {
+      "alias": "sum",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "columnType": "text",
-      "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"name\"]))}}",
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{Table7.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"sum\"]))}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
       "enableSort": true,
+      "fontStyle": "",
       "horizontalAlignment": "LEFT",
-      "id": "name",
+      "id": "sum",
       "index": 0,
       "isCellEditable": false,
       "isCellVisible": true,
@@ -159,10 +150,11 @@
       "isEditable": false,
       "isSaveVisible": true,
       "isVisible": true,
-      "label": "name",
+      "label": "sum",
       "notation": "standard",
-      "originalId": "name",
+      "originalId": "sum",
       "sticky": "",
+      "textColor": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},
@@ -172,20 +164,15 @@
   },
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 20,
+  "rightColumn": 34,
   "searchKey": "",
-  "tableData": "{{Query1.data}}",
-  "tags": [
-    "Suggested",
-    "Display"
-  ],
+  "tableData": "{{Refunds.data}}",
   "textSize": "0.875rem",
-  "thumbnailSVG": "https://appcdn.appsmith.com/static/media/thumbnail.d0492f06681daa69baf92b07d3829dfc.svg",
-  "topRow": 22,
+  "topRow": 283,
   "totalRecordsCount": 0,
   "type": "TABLE_WIDGET_V2",
   "version": 2,
   "verticalAlignment": "CENTER",
-  "widgetId": "frn3ukma0j",
-  "widgetName": "Table1"
+  "widgetId": "xldk7fubx0",
+  "widgetName": "Table7"
 }

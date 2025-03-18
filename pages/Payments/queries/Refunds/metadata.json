@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "64b92e3951b06c6cdc1f0c88_660fd903336be123b21115ff",
-  "id": "Users_Query2",
+  "gitSyncId": "64b92e3951b06c6cdc1f0c88_5dabd5ff-a671-4147-8da5-29b57c69b516",
+  "id": "Payments_Refunds",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT count (\"userId\") as \"Paying_Users\"\nFROM \"Payment\"\nWHERE \"Payment\".\"createdAt\" >= {{moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")}}::date - interval '330 minutes'\nAND \"Payment\".\"createdAt\" <= {{moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")}}::date + interval '1110 minutes'\nAND \"status\" = 'responseReceivedSuccess';\n",
+      "body": "SELECT SUM(\"amount\"), \"status\" FROM \"Payment\" p WHERE p.\"createdAt\" >= {{moment(DatePicker1.selectedDate).format(\"YYYY-MM-DD\")}}::date - interval '330 minutes'\n    AND p.\"createdAt\" <= {{moment(DatePicker2.selectedDate).format(\"YYYY-MM-DD\")}}::date + interval '1110 minutes'\n    GROUP BY p.\"status\";",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -28,8 +28,8 @@
       }
     ],
     "executeOnLoad": true,
-    "name": "Query2",
-    "pageId": "Users",
+    "name": "Refunds",
+    "pageId": "Payments",
     "userSetOnLoad": false
   }
 }

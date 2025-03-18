@@ -1,0 +1,30 @@
+SELECT 
+    filteredUsers."userId" AS "FreeUsers",
+    COALESCE("UserProfile"."phone", "User"."phone") AS "PhoneNumber"
+FROM (
+    SELECT 
+        "userId",
+        SUM("eventCount") AS "totalQuestions",
+        MAX("eventDate") AS "lastEventDate"
+    FROM 
+        "DailyUserEvent"
+    WHERE 
+        "event" = 'Question'
+        AND "eventDate" > '2024-05-05' -- Only consider events of type 'Question'
+    GROUP BY 
+        "userId"
+    HAVING 
+        SUM("eventCount") > 1000 -- Filter users who practiced between 200 and 500 questions
+        AND MAX("eventDate") > '2025-01-01' -- Ensure the latest event date for the user is after January 1, 2025
+) AS filteredUsers
+LEFT JOIN "UserProfile" 
+    ON filteredUsers."userId" = "UserProfile"."userId" -- Join to get phone numbers from UserProfile
+LEFT JOIN "User" 
+    ON filteredUsers."userId" = "User"."id" -- Join to get phone numbers from User
+WHERE 
+    filteredUsers."userId" NOT IN (
+        SELECT DISTINCT "userId"
+        FROM "UserCourse"
+        WHERE "expiryAt" > '2025-02-28' OR "courseId" = 2135
+        -- Active course as of today
+    );
