@@ -23,9 +23,9 @@
       "pluginId": "postgres-plugin"
     },
     "dynamicBindingPathList": [],
-    "executeOnLoad": false,
     "name": "Query6",
     "pageId": "Users",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }

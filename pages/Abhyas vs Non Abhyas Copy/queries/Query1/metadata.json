@@ -22,9 +22,9 @@
       "name": "learner1",
       "pluginId": "postgres-plugin"
     },
-    "executeOnLoad": false,
     "name": "Query1",
     "pageId": "Abhyas vs Non Abhyas Copy",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }

@@ -23,9 +23,9 @@
       "pluginId": "postgres-plugin"
     },
     "dynamicBindingPathList": [],
-    "executeOnLoad": false,
     "name": "Query4",
     "pageId": "Abhyas vs Non Abhyas Copy",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }

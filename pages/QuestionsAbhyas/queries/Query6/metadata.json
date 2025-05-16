@@ -23,9 +23,9 @@
       "pluginId": "postgres-plugin"
     },
     "dynamicBindingPathList": [],
-    "executeOnLoad": false,
     "name": "Query6",
     "pageId": "QuestionsAbhyas",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }

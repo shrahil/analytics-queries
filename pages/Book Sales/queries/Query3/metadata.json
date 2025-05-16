@@ -27,9 +27,9 @@
         "key": "body"
       }
     ],
-    "executeOnLoad": false,
     "name": "Query3",
     "pageId": "Book Sales",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }

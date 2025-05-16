@@ -23,9 +23,9 @@
       "pluginId": "postgres-plugin"
     },
     "dynamicBindingPathList": [],
-    "executeOnLoad": false,
     "name": "Query2",
     "pageId": "Streak Tracker",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }

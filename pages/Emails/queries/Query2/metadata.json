@@ -23,9 +23,9 @@
       "pluginId": "postgres-plugin"
     },
     "dynamicBindingPathList": [],
-    "executeOnLoad": false,
     "name": "Query2",
     "pageId": "Emails",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }

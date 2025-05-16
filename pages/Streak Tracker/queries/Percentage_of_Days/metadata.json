@@ -27,9 +27,9 @@
         "key": "body"
       }
     ],
-    "executeOnLoad": false,
     "name": "Percentage_of_Days",
     "pageId": "Streak Tracker",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }
