@@ -99,7 +99,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "number",
-      "computedValue": "{{Total_Users.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"totalusers\"]))}}",
+      "computedValue": "{{(() => { const tableData = Total_Users.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow[\"totalusers\"])) :  currentRow[\"totalusers\"] })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,

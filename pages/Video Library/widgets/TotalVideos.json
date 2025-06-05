@@ -99,7 +99,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "number",
-      "computedValue": "{{TotalVideos.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"totalvideosadded\"]))}}",
+      "computedValue": "{{(() => { const tableData = TotalVideos.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow[\"totalvideosadded\"])) :  currentRow[\"totalvideosadded\"] })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,

@@ -105,7 +105,7 @@
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "columnType": "number",
-      "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"UsersWithNoPracticeAfterTrial\"]))}}",
+      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow[\"UsersWithNoPracticeAfterTrial\"])) :  currentRow[\"UsersWithNoPracticeAfterTrial\"] })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
